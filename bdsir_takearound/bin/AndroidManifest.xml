@@ -25,6 +25,22 @@
 			</intent-filter>
         </activity>
         
+        <activity
+            android:name="it.unisa.bdsir_takearound.TutorialActivity"
+            android:label="Tutorial - TakeARound!"
+            android:parentActivityName="it.unisa.bdsir_takearound.MainActivity"
+            android:screenOrientation="landscape" >
+            
+        </activity>
+        
+        <activity
+            android:name="it.unisa.bdsir_takearound.RecordActivity"
+            android:label="Record - TakeARound!"
+            android:parentActivityName="it.unisa.bdsir_takearound.MainActivity"
+            android:screenOrientation="landscape" >
+            
+        </activity>
+        
     </application>
 
 </manifest>
