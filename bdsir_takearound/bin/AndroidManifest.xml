@@ -41,6 +41,14 @@
             
         </activity>
         
+        <activity
+            android:name="it.unisa.bdsir_takearound.LevelChoiceActivity"
+            android:label="TakeARound!"
+            android:parentActivityName="it.unisa.bdsir_takearound.MainActivity"
+            android:screenOrientation="landscape" >
+            
+        </activity>
+        
     </application>
 
 </manifest>

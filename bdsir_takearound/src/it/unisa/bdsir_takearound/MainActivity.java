@@ -19,7 +19,8 @@ public class MainActivity extends Activity{
 		gioca.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
-				Toast.makeText(getBaseContext(), "hai cliccato su GIOCA", Toast.LENGTH_SHORT).show();
+			//	Toast.makeText(getBaseContext(), "hai cliccato su GIOCA", Toast.LENGTH_SHORT).show();
+				openLevelChoiceActivity();
 			}
 		});
 		
@@ -42,6 +43,11 @@ public class MainActivity extends Activity{
 		});
 	}
 	
+	protected void openLevelChoiceActivity() {
+		Intent intent = new Intent(this, LevelChoiceActivity.class);
+		startActivity(intent);
+	}
+
 	protected void openRecordActivity(View view) {
 		Intent intent = new Intent(this, RecordActivity.class);
 		startActivity(intent);
