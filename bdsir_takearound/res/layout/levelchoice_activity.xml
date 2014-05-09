@@ -4,67 +4,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    
-    <CheckBox
-        android1:id="@+id/checkBox1"
-        android1:layout_width="wrap_content"
-        android1:layout_height="wrap_content"
-        android1:layout_above="@+id/radioGroup1"
-        android1:layout_alignParentLeft="true"
-        android1:layout_marginLeft="22dp"
-        android1:text="CheckBox" />
-
-    <CheckBox
-        android1:id="@+id/checkBox2"
-        android1:layout_width="wrap_content"
-        android1:layout_height="wrap_content"
-        android1:layout_alignLeft="@+id/checkBox1"
-        android1:layout_centerVertical="true"
-        android1:text="CheckBox" />
-
-    <CheckBox
-        android1:id="@+id/checkBox3"
-        android1:layout_width="wrap_content"
-        android1:layout_height="wrap_content"
-        android1:layout_alignRight="@+id/checkBox2"
-        android1:layout_below="@+id/radioGroup1"
-        android1:text="CheckBox" />
-    
     <RadioGroup
         android1:id="@+id/radioGroup1"
         android1:layout_width="wrap_content"
         android1:layout_height="wrap_content"
         android1:layout_alignParentLeft="true"
         android1:layout_centerVertical="true"
-        android1:layout_marginLeft="175dp" >
+        android1:layout_marginLeft="30dp" >
 
         <RadioButton
             android1:id="@+id/radio0"
             android1:layout_width="wrap_content"
             android1:layout_height="wrap_content"
             android1:checked="true"
-            android1:text="RadioButton" />
+            android1:text="Facile" />
 
         <RadioButton
             android1:id="@+id/radio1"
             android1:layout_width="wrap_content"
             android1:layout_height="wrap_content"
-            android1:text="RadioButton" />
+            android1:text="Medio" />
 
         <RadioButton
             android1:id="@+id/radio2"
             android1:layout_width="wrap_content"
             android1:layout_height="wrap_content"
-            android1:text="RadioButton" />
+            android1:text="Difficile" />
     </RadioGroup>
 
     <Button
         android1:id="@+id/button1"
         android1:layout_width="wrap_content"
         android1:layout_height="wrap_content"
-        android1:layout_alignBottom="@+id/checkBox2"
         android1:layout_alignParentRight="true"
+        android1:layout_centerVertical="true"
         android1:layout_marginRight="70dp"
-        android1:text="Button" />
+        android1:text="Gioca" />
+
+    <TextView
+        android1:id="@+id/textView1"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_above="@+id/radioGroup1"
+        android1:layout_centerHorizontal="true"
+        android1:layout_marginLeft="14dp"
+        android1:text="N° livelli"
+        android1:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android1:id="@+id/textView2"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_alignBottom="@+id/textView1"
+        android1:layout_alignRight="@+id/radioGroup1"
+        android1:text="Modalità"
+        android1:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RadioGroup
+        android1:id="@+id/radioGroup2"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_alignLeft="@+id/textView1"
+        android1:layout_alignTop="@+id/radioGroup1" >
+
+        <RadioButton
+            android1:id="@+id/radio0"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:checked="true"
+            android1:text="1" />
+
+        <RadioButton
+            android1:id="@+id/radio1"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:text="2" />
+
+        <RadioButton
+            android1:id="@+id/radio2"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:text="3" />
+    </RadioGroup>
 
 </RelativeLayout>
