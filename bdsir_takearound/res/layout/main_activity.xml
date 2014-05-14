@@ -11,7 +11,8 @@
         android:layout_alignRight="@+id/buttonRecord"
         android:layout_centerVertical="true"
         android:onClick="openTutorialActivity"
-        android:text="@string/tutorial" />
+        android:text="@string/tutorial"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonGioca"
@@ -19,7 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonTutorial"
         android:layout_alignLeft="@+id/buttonRecord"
-        android:text="@string/gioca" />
+        android:text="@string/gioca"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonRecord"
@@ -28,7 +30,8 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/buttonTutorial"
         android:layout_marginRight="35dp"
-        android:text="@string/records" />
+        android:text="@string/records" 
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textView1"
@@ -37,6 +40,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/buttonGioca"
         android:layout_marginLeft="38dp"
-        android:text="@string/app_name" />
+        android:text="@string/app_name"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>
