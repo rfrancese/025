@@ -1,4 +1,4 @@
-package it.unisa.bdsir_takearound;
+package it.unisa.bdsir_takearound.entities;
 
 import it.unisa.takearound.R;
 
@@ -17,13 +17,14 @@ import android.view.View;
 import android.widget.Toast;
 
 
-public class CustomView extends View {
+public class Target extends View {
 
 	Bitmap mBmp;
 	Random mRnd;
 	Paint mPaint;
 	int w,h,bw,bh;
 	int px=-1,py=-1; //coordinate immagine
+	private boolean statoColpito;
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
@@ -39,10 +40,11 @@ public class CustomView extends View {
 		double calc = Math.pow(x - xCentroImmagine,2)+Math.pow(y - yCentroImmagine,2);
 		double segmento = Math.sqrt(Math.abs( calc ));
 		if (segmento<=(bh/2)){
-			Toast.makeText(getContext(), "hai cliccato sul target\ncentro target ("+xCentroImmagine+","+yCentroImmagine+")\nhai cliccato in ("+x+","+y+")", Toast.LENGTH_SHORT).show();
+		//	Toast.makeText(getContext(), "hai cliccato sul target\ncentro target ("+xCentroImmagine+","+yCentroImmagine+")\nhai cliccato in ("+x+","+y+")", Toast.LENGTH_SHORT).show();
 			this.updatePosition();
+			statoColpito=false;
 		}else{
-			Toast.makeText(getContext(), "hai cliccato FUORI\ncentro target ("+xCentroImmagine+","+yCentroImmagine+")\nhai cliccato in ("+x+","+y+")", Toast.LENGTH_SHORT).show();
+		//	Toast.makeText(getContext(), "hai cliccato FUORI\ncentro target ("+xCentroImmagine+","+yCentroImmagine+")\nhai cliccato in ("+x+","+y+")", Toast.LENGTH_SHORT).show();
 		}
 		
 		return true;
@@ -50,7 +52,7 @@ public class CustomView extends View {
 
 
 
-	public CustomView(Context context, AttributeSet attrs) {
+	public Target(Context context, AttributeSet attrs) {
 		super(context, attrs);
 
 		mBmp=BitmapFactory.decodeResource(context.getResources(), R.drawable.hitcircle_arancio_0);      //carichiamo l'immagine in una bitmap
@@ -77,12 +79,9 @@ public class CustomView extends View {
 		}
 
 
-		canvas.drawCircle(px+(bw/2), py+(bh/2), bh, mPaint); //disegnamo un cerchio con centro al centro della bitmap
+		canvas.drawCircle(px+(bw/2), py+(bh/2), bh/2, mPaint); //disegnamo un cerchio con centro al centro della bitmap
 		canvas.drawBitmap( // disegnamo la bitmap
-				mBmp,
-				px,
-				py,
-				null);
+				mBmp, px, py, null);
 
 
 	}

@@ -1,4 +1,4 @@
-package it.unisa.bdsir_takearound;
+package it.unisa.bdsir_takearound.entities;
 
 import it.unisa.takearound.R;
 import android.app.Activity;

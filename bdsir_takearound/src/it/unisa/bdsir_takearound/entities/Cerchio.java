@@ -1,4 +1,4 @@
-package it.unisa.bdsir_takearound;
+package it.unisa.bdsir_takearound.entities;
 
 import android.graphics.Color;
 import android.graphics.Point;

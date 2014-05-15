@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/fragment1"
-        android:name="it.unisa.bdsir_takearound.MyFragment"
+        android:name="it.unisa.bdsir_takearound.entities.MyFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

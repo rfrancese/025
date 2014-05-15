@@ -1,5 +1,6 @@
-package it.unisa.bdsir_takearound;
+package it.unisa.bdsir_takearound.ui;
 
+import it.unisa.bdsir_takearound.entities.Target;
 import it.unisa.takearound.R;
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,19 +9,19 @@ import android.view.View;
 import android.widget.Button;
 
 public class GameActivity extends Activity{
-	CustomView cv;
-//  Handler updateCvHandler;
+	Target target;
+//  Handler updatetargetHandler;
 	
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.myfragment_layout);
 	    
-	    cv=(CustomView)findViewById(R.id.customView);
-	    cv.setOnClickListener(new View.OnClickListener() {
+	    target=(Target)findViewById(R.id.customView);
+	    target.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				cv.updatePosition();
+				target.updatePosition();
 				
 			}
 		});
@@ -29,7 +30,7 @@ public class GameActivity extends Activity{
 	    b.setOnClickListener(new View.OnClickListener() {
 	    	
 	    	public void onClick(View v) {
-	    		cv.updatePosition();
+	    		target.updatePosition();
 	        }
 	    });
 	} 

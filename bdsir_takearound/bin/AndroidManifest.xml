@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme" >
         
         <activity 
-            android:name="it.unisa.bdsir_takearound.MainActivity" 
+            android:name="it.unisa.bdsir_takearound.ui.MainActivity" 
             android:label="@string/app_name"
             android:screenOrientation="landscape">
             <intent-filter>
@@ -26,33 +26,33 @@
         </activity>
         
         <activity
-            android:name="it.unisa.bdsir_takearound.TutorialActivity"
+            android:name="it.unisa.bdsir_takearound.ui.TutorialActivity"
             android:label="Tutorial - TakeARound!"
-            android:parentActivityName="it.unisa.bdsir_takearound.MainActivity"
+            android:parentActivityName="it.unisa.bdsir_takearound.ui.MainActivity"
             android:screenOrientation="landscape" >
             
         </activity>
         
         <activity
-            android:name="it.unisa.bdsir_takearound.RecordActivity"
+            android:name="it.unisa.bdsir_takearound.ui.RecordActivity"
             android:label="Record - TakeARound!"
-            android:parentActivityName="it.unisa.bdsir_takearound.MainActivity"
+            android:parentActivityName="it.unisa.bdsir_takearound.ui.MainActivity"
             android:screenOrientation="landscape" >
             
         </activity>
         
         <activity
-            android:name="it.unisa.bdsir_takearound.LevelChoiceActivity"
+            android:name="it.unisa.bdsir_takearound.entities.LevelChoiceActivity"
             android:label="TakeARound!"
-            android:parentActivityName="it.unisa.bdsir_takearound.MainActivity"
+            android:parentActivityName="it.unisa.bdsir_takearound.ui.MainActivity"
             android:screenOrientation="landscape" >
             
         </activity>
         
         <activity
-            android:name="it.unisa.bdsir_takearound.GameActivity"
+            android:name="it.unisa.bdsir_takearound.ui.GameActivity"
             android:label="TakeARound!"
-            android:parentActivityName="it.unisa.bdsir_takearound.LevelChoiceActivity"
+            android:parentActivityName="it.unisa.bdsir_takearound.entities.LevelChoiceActivity"
             android:screenOrientation="landscape" >
             
         </activity>

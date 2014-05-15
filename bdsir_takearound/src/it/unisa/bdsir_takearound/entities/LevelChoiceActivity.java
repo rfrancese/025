@@ -1,5 +1,6 @@
-package it.unisa.bdsir_takearound;
+package it.unisa.bdsir_takearound.entities;
 
+import it.unisa.bdsir_takearound.ui.GameActivity;
 import it.unisa.takearound.R;
 import android.app.Activity;
 import android.content.Intent;
