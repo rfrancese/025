@@ -23,17 +23,31 @@ public class TargetView extends View {
 	Random mRnd;
 	Paint mPaint;
 	int widthView,heightView,bitmapWidth,bitmapHeight=0;
-	double px=-1,py=-1; //coordinate immagine
+	double px=0,py=0; //coordinate immagine
 	private boolean statoColpito;
 	private Target target;
 
 	public TargetView(Context context) {
-		super(context);
-		
+		super(context,null);
+		init(context);
+	}
+
+	public TargetView(Context context, AttributeSet attrs) {
+	    super(context, attrs);
+	    init(context);
+	}
+
+	public TargetView(Context context, AttributeSet attrs, int defStyle) {
+	    super(context, attrs, defStyle);
+	    init(context);
+	}
+	
+	public void init(Context context){
 		mBmp=BitmapFactory.decodeResource(context.getResources(), R.drawable.hitcircle_arancio_0);      //carichiamo l'immagine in una bitmap
 		bitmapWidth=mBmp.getWidth(); //larghezza bitmap
 		bitmapHeight=mBmp.getHeight();//altezza   
 		
+		mRnd = new Random();
 	//	mBmp.setWidth(10);
 	//	mBmp.setHeight(10);
 	//	mPaint=new Paint(); // pennello
@@ -41,16 +55,10 @@ public class TargetView extends View {
 	//	mPaint.setAntiAlias(true); 
 	//	mRnd=new Random();
 		
+		px=mRnd.nextInt(Math.abs(widthView-bitmapWidth));
+		py=mRnd.nextInt(Math.abs(heightView-bitmapHeight));
+		
 		statoColpito=false;
-
-	}
-
-	public TargetView(Context context, AttributeSet attrs) {
-	    super(context, attrs);
-	}
-
-	public TargetView(Context context, AttributeSet attrs, int defStyle) {
-	    super(context, attrs, defStyle);
 	}
 
 
@@ -70,6 +78,12 @@ public class TargetView extends View {
 		px=mRnd.nextInt(widthView-bitmapWidth);
 		py=mRnd.nextInt(heightView-bitmapHeight);
 		invalidate();
+	}
+	public int getBitmapHeight(){
+		return bitmapHeight;
+	}
+	public int getBitmapWidth(){
+		return bitmapWidth;
 	}
 	
 	@Override
@@ -109,6 +123,9 @@ public class TargetView extends View {
 		this.px=t.getX();
 		this.py=t.getY();
 	}
-
+	
+	public void setStatoColpito(){
+		statoColpito=true;
+	}
 
 }

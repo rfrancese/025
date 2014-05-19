@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import it.unisa.bdsir_takearound.entities.LevelChoiceActivity;
 import it.unisa.takearound.R;
 
 public class MainActivity extends Activity{

@@ -42,7 +42,7 @@
         </activity>
         
         <activity
-            android:name="it.unisa.bdsir_takearound.entities.LevelChoiceActivity"
+            android:name="it.unisa.bdsir_takearound.ui.LevelChoiceActivity"
             android:label="TakeARound!"
             android:parentActivityName="it.unisa.bdsir_takearound.ui.MainActivity"
             android:screenOrientation="landscape" >
@@ -52,7 +52,7 @@
         <activity
             android:name="it.unisa.bdsir_takearound.ui.GameActivity"
             android:label="TakeARound!"
-            android:parentActivityName="it.unisa.bdsir_takearound.entities.LevelChoiceActivity"
+            android:parentActivityName="it.unisa.bdsir_takearound.ui.LevelChoiceActivity"
             android:screenOrientation="landscape" >
             
         </activity>
