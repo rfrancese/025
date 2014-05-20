@@ -4,5 +4,7 @@
     <string name="gioca">Gioca</string>
     <string name="records">Record</string>
     <string name="tutorial">Tutorial</string>
-
+    <string name="tutorialENG">Touch the Target to increment your score.</string>
+    <string name="tutorialITA">Clicca sul Target per ottenere il miglior punteggio.</string>
+	<string name="tutorialSPA">Tocar el objetivo de incrementar su puntuación.</string>
 </resources>

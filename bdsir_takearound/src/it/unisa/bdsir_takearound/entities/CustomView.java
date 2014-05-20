@@ -14,6 +14,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.MeasureSpec;
 import android.widget.Toast;
 
 
@@ -25,6 +26,7 @@ Paint mPaint;
 int w,h,bw,bh;
 int px=-1,py=-1; //coordinate immagine
 
+/*
 @Override
 public boolean onTouchEvent(MotionEvent event) {
 double x=event.getX();
@@ -47,7 +49,7 @@ this.updatePosition();
 
 return true;
 }
-
+*/
 
 
 public CustomView(Context context, AttributeSet attrs) {

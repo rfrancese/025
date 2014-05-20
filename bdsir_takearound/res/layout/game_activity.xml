@@ -3,12 +3,26 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:background="@drawable/sfondo1">
 
-    <it.unisa.bdsir_takearound.entities.TargetGroupView
+    <TextView
+        android:id="@+id/textViewScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Punteggio: "
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+   <!-- <it.unisa.bdsir_takearound.entities.TargetGroupView
     android:id="@+id/targetgroup0"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" />
+    -->
+ 
+    <it.unisa.bdsir_takearound.entities.TargetView
+        android:id="@+id/customView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     
 </LinearLayout>
