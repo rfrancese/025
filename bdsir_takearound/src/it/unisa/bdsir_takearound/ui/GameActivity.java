@@ -106,7 +106,7 @@ public class GameActivity extends Activity{
 					((TargetView) arg0).updatePosition();
 					arg0.invalidate();
 					//application.updateScore(10);
-					
+					//aggiunto punteggio
 					tv.setText("Punteggio: " + (currentScore +=50));
 				}else{
 				//	Toast.makeText(getContext(), "hai cliccato FUORI\ncentro target ("+xCentroImmagine+","+yCentroImmagine+")\nhai cliccato in ("+x+","+y+")", Toast.LENGTH_SHORT).show();
