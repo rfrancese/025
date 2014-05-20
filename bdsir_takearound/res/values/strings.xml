@@ -1,5 +1,8 @@
 <resources>
 
     <string name="app_name">TakeARound</string>
+    <string name="gioca">Gioca</string>
+    <string name="records">Record</string>
+    <string name="tutorial">Tutorial</string>
 
 </resources>
