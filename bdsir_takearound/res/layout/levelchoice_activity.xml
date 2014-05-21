@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:android1="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/iniziale1" >
 
     <RadioGroup
         android1:id="@+id/radioGroup1"
@@ -17,19 +18,25 @@
             android1:layout_width="wrap_content"
             android1:layout_height="wrap_content"
             android1:checked="true"
-            android1:text="Facile" />
+            android1:text="Facile" 
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"/>
 
         <RadioButton
             android1:id="@+id/radio1"
             android1:layout_width="wrap_content"
             android1:layout_height="wrap_content"
-            android1:text="Medio" />
+            android1:text="Medio" 
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"/>
 
         <RadioButton
             android1:id="@+id/radio2"
             android1:layout_width="wrap_content"
             android1:layout_height="wrap_content"
-            android1:text="Difficile" />
+            android1:text="Difficile" 
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"/>
     </RadioGroup>
 
     <Button
@@ -39,7 +46,9 @@
         android1:layout_alignParentRight="true"
         android1:layout_centerVertical="true"
         android1:layout_marginRight="70dp"
-        android1:text="Gioca" />
+        android1:text="Gioca" 
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"/>
 
     <TextView
         android1:id="@+id/textView1"
@@ -49,6 +58,8 @@
         android1:layout_centerHorizontal="true"
         android1:layout_marginLeft="14dp"
         android1:text="N° livelli"
+ 		android:textColor="#FFFFFF"
+ 		android:textSize="20sp"
         android1:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -58,6 +69,8 @@
         android1:layout_alignBottom="@+id/textView1"
         android1:layout_alignRight="@+id/radioGroup1"
         android1:text="Modalità"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android1:textAppearance="?android:attr/textAppearanceLarge" />
 
     <RadioGroup
@@ -72,19 +85,25 @@
             android1:layout_width="wrap_content"
             android1:layout_height="wrap_content"
             android1:checked="true"
-            android1:text="1" />
+            android1:text="1" 
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"/>
 
         <RadioButton
             android1:id="@+id/radio1"
             android1:layout_width="wrap_content"
             android1:layout_height="wrap_content"
-            android1:text="2" />
+            android1:text="2"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF" />
 
         <RadioButton
             android1:id="@+id/radio2"
             android1:layout_width="wrap_content"
             android1:layout_height="wrap_content"
-            android1:text="3" />
+            android1:text="3"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF" />
     </RadioGroup>
 
 </RelativeLayout>

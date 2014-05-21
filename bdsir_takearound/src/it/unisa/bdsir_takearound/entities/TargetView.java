@@ -14,6 +14,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.MeasureSpec;
 import android.widget.Toast;
 
 
@@ -85,7 +86,8 @@ public class TargetView extends View {
 	public int getBitmapWidth(){
 		return bitmapWidth;
 	}
-	
+
+	/*
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		double x=event.getX();
@@ -109,6 +111,7 @@ public class TargetView extends View {
 		invalidate();
 		return true;
 	}
+*/
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -127,5 +130,17 @@ public class TargetView extends View {
 	public void setStatoColpito(){
 		statoColpito=true;
 	}
+
+	public double gettX() {
+		return px;
+	}
+
+
+	public double gettY() {
+		return py;
+	}
+
+	
+	
 
 }

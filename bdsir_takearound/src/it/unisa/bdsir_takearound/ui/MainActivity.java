@@ -9,11 +9,14 @@ import android.widget.Toast;
 import it.unisa.takearound.R;
 
 public class MainActivity extends Activity{
+	
 	public void onCreate(Bundle icicle){
 		
 		super.onCreate(icicle);
 		
 		setContentView(R.layout.main_activity);
+		
+		
 		
 		Button gioca = (Button) this.findViewById(R.id.buttonGioca);
 		gioca.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +46,10 @@ public class MainActivity extends Activity{
 		});
 	}
 	
+	/*public void onStart(){
+		app.currentScore = 0;
+		super.onStart();
+	}*/
 	protected void openLevelChoiceActivity() {
 		Intent intent = new Intent(this, LevelChoiceActivity.class);
 		startActivity(intent);
@@ -58,3 +65,4 @@ public class MainActivity extends Activity{
 		startActivity(intent);
 	}
 }
+
