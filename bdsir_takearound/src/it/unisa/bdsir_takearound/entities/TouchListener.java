@@ -18,9 +18,10 @@ public class TouchListener implements OnTouchListener{
 		double yCentroImmagine, xCentroImmagine;
 		
 		//devo calcolare il centro del rettangolo
-		yCentroImmagine=t.getY()+(t.getBitmapHeight()/2);
-		xCentroImmagine=t.getX()+(t.getBitmapWidth()/2);
+		yCentroImmagine=t.gettY()+(t.getBitmapHeight()/2);
+		xCentroImmagine=t.gettX()+(t.getBitmapWidth()/2);
 		
+		//calcoli per calcolare la circonferenza
 		double calc = Math.pow(x - xCentroImmagine,2)+Math.pow(y - yCentroImmagine,2);
 		double segmento = Math.sqrt(Math.abs( calc ));
 		if (segmento<=(t.getBitmapHeight()/2)){

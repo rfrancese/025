@@ -60,7 +60,7 @@ public class MainActivity extends Activity{
 		startActivity(intent);
 	}
 
-	protected void openTutorialActivity(View view){
+	public void openTutorialActivity(View view){
 		Intent intent = new Intent(this, TutorialActivity.class);
 		startActivity(intent);
 	}

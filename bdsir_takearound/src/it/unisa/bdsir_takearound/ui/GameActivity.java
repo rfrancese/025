@@ -75,9 +75,11 @@ public class GameActivity extends Activity{
 		mPlayer = MediaPlayer.create(GameActivity.this, R.raw.medio);
 		try {
 			mPlayer.prepare();
-		} catch (IllegalStateException | IOException e) {
+		} catch (IllegalStateException e){
 			e.printStackTrace();
-		} 
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
 		
 		mPlayer.setLooping(true);
 		mPlayer.start();
