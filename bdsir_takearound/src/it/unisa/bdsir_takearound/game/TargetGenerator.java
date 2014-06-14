@@ -44,7 +44,7 @@ public class TargetGenerator {
 			
 			if (i%2 == 0) attesa+=1;
 			if (i%2 == 1) attesa+=2;
-			t.setAttesa(attesa);
+			t.setAttesa(attesa*1000);
 			
 			listaTarget.add(t);
 			
