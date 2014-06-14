@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+<<<<<<< HEAD
     <ToggleButton
         android:id="@+id/toggleButton1"
         android:layout_width="wrap_content"
@@ -12,5 +13,15 @@
         android:layout_marginLeft="158dp"
         android:layout_marginTop="83dp"
         android:text="ToggleButton" />
+=======
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="it.unisa.bdsir_takearound.entities.MyFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="73dp" />
+>>>>>>> branch 'master' of ssh://git@github.com/rfrancese/TakeARound
 
 </RelativeLayout>
