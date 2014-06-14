@@ -6,55 +6,25 @@
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="17" />
-
-    <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:anyDensity="true"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>  
     
+    <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:anyDensity="true"/>
+  
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         
-        <activity 
-            android:name="it.unisa.bdsir_takearound.ui.MainActivity" 
-            android:label="@string/app_name"
-            android:screenOrientation="landscape">
+        <activity android:name="it.unisa.bdsir_takearound.game.TakeARoundGame"
+                  android:label="TakeARound!"
+                  android:configChanges="keyboard|keyboardHidden|orientation"
+                  android:screenOrientation="landscape">
             <intent-filter>
-				<action android:name="android.intent.action.MAIN"/>
-				<category android:name="android.intent.category.LAUNCHER"/>
-			</intent-filter>
-        </activity>
-        
-        <activity
-            android:name="it.unisa.bdsir_takearound.ui.TutorialActivity"
-            android:label="Tutorial - TakeARound!"
-            android:parentActivityName="it.unisa.bdsir_takearound.ui.MainActivity"
-            android:screenOrientation="landscape" >
-            
-        </activity>
-        
-        <activity
-            android:name="it.unisa.bdsir_takearound.ui.RecordActivity"
-            android:label="Record - TakeARound!"
-            android:parentActivityName="it.unisa.bdsir_takearound.ui.MainActivity"
-            android:screenOrientation="landscape" >
-            
-        </activity>
-        
-        <activity
-            android:name="it.unisa.bdsir_takearound.ui.LevelChoiceActivity"
-            android:label="TakeARound!"
-            android:parentActivityName="it.unisa.bdsir_takearound.ui.MainActivity"
-            android:screenOrientation="landscape" >
-            
-        </activity>
-        
-        <activity
-            android:name="it.unisa.bdsir_takearound.ui.GameActivity"
-            android:label="TakeARound!"
-            android:parentActivityName="it.unisa.bdsir_takearound.ui.LevelChoiceActivity"
-            android:screenOrientation="landscape" >
-            
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         
     </application>

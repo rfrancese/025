@@ -73,6 +73,14 @@ public class GameScreen extends Screen {
                     world.snake.turnRight();
                 }
             }*/
+        
+            if(event.type == TouchEvent.TOUCH_DOWN){
+            	for (int j=0; j<world.listaTargetDaDisegnare.size(); j++){
+            		Target tmp = world.listaTargetDaDisegnare.get(j);
+            	//	if ()
+            	}
+            }
+        
         }
         
         
