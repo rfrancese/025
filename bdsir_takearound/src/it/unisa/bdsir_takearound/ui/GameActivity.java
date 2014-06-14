@@ -1,26 +1,17 @@
 package it.unisa.bdsir_takearound.ui;
 
+import it.unisa.bdsir_takearound.entities.CustomView;
+import it.unisa.bdsir_takearound.entities.TargetView;
+import it.unisa.takearound.R;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
-import it.unisa.bdsir_takearound.entities.CustomView;
-import it.unisa.bdsir_takearound.entities.Target;
-import it.unisa.bdsir_takearound.entities.TargetGroupView;
-import it.unisa.bdsir_takearound.entities.TargetView;
-import it.unisa.bdsir_takearound.entities.TouchListener;
-import it.unisa.takearound.R;
 import android.app.Activity;
-import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.AttributeSet;
-import android.util.Xml;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class GameActivity extends Activity{
@@ -71,7 +62,7 @@ public class GameActivity extends Activity{
 		tv.setText("Punteggio:  0");
 		
 		
-		
+		/*
 		mPlayer = MediaPlayer.create(GameActivity.this, R.raw.medio);
 		try {
 			mPlayer.prepare();
@@ -83,7 +74,7 @@ public class GameActivity extends Activity{
 		
 		mPlayer.setLooping(true);
 		mPlayer.start();
-		
+		*/
 
 		target=(TargetView)findViewById(R.id.customView1);
 		//application = (TryTakeARound) getApplication();
