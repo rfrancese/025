@@ -18,6 +18,7 @@ import android.view.View.MeasureSpec;
 import android.widget.Toast;
 
 
+
 public class CustomView extends View {
 
 Bitmap mBmp;
