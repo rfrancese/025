@@ -72,7 +72,7 @@ public class GameScreen extends Screen {
 		for(int i = 0; i < len; i++) {
 			TouchEvent event = touchEvents.get(i);
 			if(event.type == TouchEvent.TOUCH_UP) {
-				if(event.x < 64 && event.y < 64) {//se l'utente preme il tasto di pausa
+				if(event.x < 64 && event.y > game.getGraphics().getHeight()-64) {//se l'utente preme il tasto di pausa
 					if(Settings.soundEnabled)
 						Assets.click.play(1);
 
@@ -231,7 +231,7 @@ public class GameScreen extends Screen {
 	private void drawRunningUI() {
 		Graphics g = game.getGraphics();
 
-		g.drawPixmap(Assets.buttons, 0, 0, 64, 128, 64, 64);//tasto pausa
+		g.drawPixmap(Assets.buttons, 0, g.getHeight()-64, 64, 128, 64, 64);//tasto pausa
 		//      g.drawLine(0, 416, 480, 416, Color.BLACK);
 		//      g.drawPixmap(Assets.buttons, 0, 416, 64, 64, 64, 64);
 		//      g.drawPixmap(Assets.buttons, 256, 416, 0, 64, 64, 64);
