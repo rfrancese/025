@@ -3,7 +3,7 @@ package it.unisa.bdsir_takearound.game;
 import it.unisa.bdsir_takearound.framework.Pixmap;
 
 public class Target {
-	private int x,y;
+	public int x,y;
 	private int numero;
 	private Pixmap sfondo,num;
 	private boolean catched;

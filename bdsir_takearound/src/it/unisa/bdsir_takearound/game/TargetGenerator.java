@@ -35,7 +35,14 @@ public class TargetGenerator {
 	
 	private void generateTargets(){
 		int rx,ry, attesa=0;
-		for(int i=0; i<numeroTarget; i++){
+		
+		rx=mRnd.nextInt(surfaceWidth-sfondo.getWidth());
+		ry=mRnd.nextInt(surfaceHeight-sfondo.getHeight());
+		Target first = new Target(sfondo, 0, rx, ry);
+		first.setAttesa(0);
+		listaTarget.add(first); 
+		
+		for(int i=1; i<numeroTarget; i++){
 			//posizione random x,y della bitmap all interno della view
 			rx=mRnd.nextInt(surfaceWidth-sfondo.getWidth());
 			ry=mRnd.nextInt(surfaceHeight-sfondo.getHeight());
@@ -44,7 +51,7 @@ public class TargetGenerator {
 			
 			if (i%2 == 0) attesa+=1;
 			if (i%2 == 1) attesa+=2;
-			t.setAttesa(attesa*1000);
+			t.setAttesa(attesa);
 			
 			listaTarget.add(t);
 			
