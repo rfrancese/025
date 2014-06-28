@@ -6,9 +6,7 @@ import java.util.List;
 import android.graphics.Color;
 import it.unisa.bdsir_takearound.framework.Game;
 import it.unisa.bdsir_takearound.framework.Graphics;
-import it.unisa.bdsir_takearound.framework.Input;
 import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
-import it.unisa.bdsir_takearound.framework.Input.KeyEvent;
 import it.unisa.bdsir_takearound.framework.Screen;
 
 public abstract class GameScreen extends Screen {
@@ -38,21 +36,6 @@ public abstract class GameScreen extends Screen {
 
 	@Override
 	public void update(float deltaTime) {
-			
-		List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
-		List<it.unisa.bdsir_takearound.framework.Input.KeyEvent> keyEvents = game.getInput().getKeyEvents();
-
-		if(state == GameState.Ready)
-			updateReady(touchEvents);
-
-		if(state == GameState.Running)
-			updateRunning(touchEvents, keyEvents , deltaTime);
-
-		if(state == GameState.Paused)
-			updatePaused(touchEvents);
-
-		if(state == GameState.GameOver)
-			updateGameOver(touchEvents);
 		
 	}
 
@@ -63,8 +46,6 @@ public abstract class GameScreen extends Screen {
 			contatore.start();
 		}
 	}
-
-	private void updateRunning(List<TouchEvent> touchEvents, List<Input.KeyEvent> keyEvents, float deltaTime) {}
 
 	protected void updatePaused(List<TouchEvent> touchEvents) {
 		int len = touchEvents.size();

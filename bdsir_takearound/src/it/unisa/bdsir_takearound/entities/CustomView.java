@@ -55,7 +55,7 @@ return true;
 public CustomView(Context context, AttributeSet attrs) {
 super(context, attrs);
 
-mBmp=BitmapFactory.decodeResource(context.getResources(), R.drawable.hitcircle_arancio_0); //carichiamo l'immagine in una bitmap
+//mBmp=BitmapFactory.decodeResource(context.getResources(), R.drawable.hitcircle_arancio_0); //carichiamo l'immagine in una bitmap
 bw=mBmp.getWidth(); //larghezza bitmap
 bh=mBmp.getHeight();//altezza
 

@@ -26,7 +26,7 @@ public class World {
 	
 	//variabili livello - per il momento uno solo
 	private int durataSecondiTarget = 2;
-	private int numTarget = 30;
+//	private int numTarget = 30;
 	private String modality;
 	
 	private TimeMachine contatore;

@@ -44,7 +44,7 @@ public class TargetView extends View {
 	}
 	
 	public void init(Context context){
-		mBmp=BitmapFactory.decodeResource(context.getResources(), R.drawable.hitcircle_arancio_0);      //carichiamo l'immagine in una bitmap
+	//	mBmp=BitmapFactory.decodeResource(context.getResources(), R.drawable.hitcircle_arancio_0);      //carichiamo l'immagine in una bitmap
 		bitmapWidth=mBmp.getWidth(); //larghezza bitmap
 		bitmapHeight=mBmp.getHeight();//altezza   
 		
