@@ -8,6 +8,7 @@ import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
 import it.unisa.bdsir_takearound.framework.Screen;
 
 public class MainMenuScreen extends Screen {
+    
     public MainMenuScreen(Game game) {
         super(game);               
     }   
@@ -27,8 +28,14 @@ public class MainMenuScreen extends Screen {
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                 }
-                if(inBounds(event, 25, 50, 90, 25) ) {
-                    game.setScreen(new GameScreen(game));
+                if(inBounds(event, 25, 50, 90, 25) ) {//play in modalità NORMAL
+                    game.setScreen(new GameNormalScreen(game));
+                    if(Settings.soundEnabled)
+                        Assets.click.play(1);
+                    return;
+                }
+                if(inBounds(event, 70, 50, 90, 25) ) {//play in modalità RUSH
+                    game.setScreen(new GameRushScreen(game));
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                     return;
@@ -69,6 +76,7 @@ public class MainMenuScreen extends Screen {
 //        else
 //            g.drawPixmap(Assets.buttons, 0, 416, 64, 0, 64, 64);
         g.drawPixmap(Assets.playbutton, 25, 50);
+        g.drawPixmap(Assets.playbutton, 70, 50);
         g.drawPixmap(Assets.tutorialbutton, 25, 100);
         g.drawPixmap(Assets.recordbutton, 25, 150);
     }

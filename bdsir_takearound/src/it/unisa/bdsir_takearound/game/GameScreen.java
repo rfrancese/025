@@ -11,7 +11,12 @@ import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
 import it.unisa.bdsir_takearound.framework.Input.KeyEvent;
 import it.unisa.bdsir_takearound.framework.Screen;
 
-public class GameScreen extends Screen {
+public abstract class GameScreen extends Screen {
+	public GameScreen(Game game) {
+		super(game);
+		// TODO Auto-generated constructor stub
+	}
+
 	enum GameState {
 		Ready,
 		Running,
@@ -23,19 +28,13 @@ public class GameScreen extends Screen {
 	World world;
 	int oldScore = 0;
 	String score = "0";
+	String modality;
+	String contoAllaRovescia = "20";
 
 	TargetGenerator tg;
 	TimeMachine contatore;
 
-	public GameScreen(Game game) {
-		super(game);
 
-		tg = new TargetGenerator(10, Assets.target,game.getGraphics().getWidth(),game.getGraphics().getHeight());
-
-		contatore = new TimeMachine(); 
-		world = new World(tg, contatore);
-		
-	}
 
 	@Override
 	public void update(float deltaTime) {
@@ -53,12 +52,11 @@ public class GameScreen extends Screen {
 			updatePaused(touchEvents);
 
 		if(state == GameState.GameOver)
-			updateGameOver(touchEvents);     
-	
+			updateGameOver(touchEvents);
 		
 	}
 
-	private void updateReady(List<TouchEvent> touchEvents) {
+	protected void updateReady(List<TouchEvent> touchEvents) {
 		if(touchEvents.size() > 0){
 			state = GameState.Running;
 			
@@ -66,75 +64,9 @@ public class GameScreen extends Screen {
 		}
 	}
 
-	private void updateRunning(List<TouchEvent> touchEvents, List<Input.KeyEvent> keyEvents, float deltaTime) {
-		
-		int len = touchEvents.size();
-		for(int i = 0; i < len; i++) {
-			TouchEvent event = touchEvents.get(i);
-			if(event.type == TouchEvent.TOUCH_UP) {
-				if(event.x < 64 && event.y > game.getGraphics().getHeight()-64) {//se l'utente preme il tasto di pausa
-					if(Settings.soundEnabled)
-						Assets.click.play(1);
+	private void updateRunning(List<TouchEvent> touchEvents, List<Input.KeyEvent> keyEvents, float deltaTime) {}
 
-					state = GameState.Paused;
-					
-					contatore.pausa();
-					return;
-				}
-			}
-		}
-		
-		
-		
-		for(int i = 0; i < len; i++) {
-			TouchEvent event = touchEvents.get(i);
-			
-			if(event.type == TouchEvent.TOUCH_DOWN){
-				for (int j=0; j<world.listaTargetDaDisegnare.size(); j++){
-					Target tmp = world.listaTargetDaDisegnare.get(j);
-
-					double x=event.x;
-					double y=event.y;
-
-					double yCentroImmagine, xCentroImmagine;
-
-					//devo calcolare il centro del rettangolo
-					yCentroImmagine=tmp.y+(tmp.getSfondo().getHeight()/2);
-					xCentroImmagine=tmp.x+(tmp.getSfondo().getWidth()/2);
-
-					//calcoli per calcolare la circonferenza
-					double calc = Math.pow(x - xCentroImmagine,2)+Math.pow(y - yCentroImmagine,2);
-					double segmento = Math.sqrt(Math.abs( calc ));
-
-					if (segmento <= (tmp.getSfondo().getHeight()/2)) //il target è stato colpito
-						tmp.setCatched(true);
-					
-				}
-			}			
-		}
-		world.update(deltaTime);
-
-		if(world.gameOver) {
-			if(Settings.soundEnabled)
-				Assets.bitten.play(1);
-			state = GameState.GameOver;
-		}
-		if(oldScore != world.score) {
-			oldScore = world.score;
-			score = "" + oldScore;
-			if(Settings.soundEnabled)
-				Assets.eat.play(1);
-		}
-		
-		
-		
-		for (int k=0; k<keyEvents.size(); k++){
-			if (keyEvents.get(k).keyCode == android.view.KeyEvent.KEYCODE_BACK || keyEvents.get(k).keyCode == android.view.KeyEvent.KEYCODE_POWER)
-				state = GameState.Paused;
-		}
-	}
-
-	private void updatePaused(List<TouchEvent> touchEvents) {
+	protected void updatePaused(List<TouchEvent> touchEvents) {
 		int len = touchEvents.size();
 		for(int i = 0; i < len; i++) {
 			TouchEvent event = touchEvents.get(i);
@@ -161,7 +93,7 @@ public class GameScreen extends Screen {
 		}
 	}
 
-	private void updateGameOver(List<TouchEvent> touchEvents) {
+	protected void updateGameOver(List<TouchEvent> touchEvents) {
 		int len = touchEvents.size();
 		for(int i = 0; i < len; i++) {
 			TouchEvent event = touchEvents.get(i);
@@ -179,30 +111,13 @@ public class GameScreen extends Screen {
 
 
 	@Override
-	public void present(float deltaTime) {
+	public void present(float deltaTime) {}
+
+	
+	protected void drawWorld(World world) {
 		Graphics g = game.getGraphics();
 
-		g.drawPixmap(Assets.background, 0, 0);
-		drawWorld(world);
-
-		if(state == GameState.Ready) 
-			drawReadyUI();
-		if(state == GameState.Running)
-			drawRunningUI();
-		if(state == GameState.Paused)
-			drawPausedUI();
-		if(state == GameState.GameOver)
-			drawGameOverUI();
-
-		drawText(g, score, g.getWidth() / 2 - score.length()*20 / 2, g.getHeight() - 42);                
-	}
-
-	private void drawWorld(World world) {
-		Graphics g = game.getGraphics();
-
-		ArrayList<Target> listaTarget = world.listaTargetDaDisegnare;
-
-		disegnaTarget(listaTarget, g);
+		disegnaTarget(world.listaTargetDaDisegnare, g);
 
 	}
 
@@ -221,14 +136,14 @@ public class GameScreen extends Screen {
 		}
 	}
 
-	private void drawReadyUI() {
+	protected void drawReadyUI() {
 		Graphics g = game.getGraphics();
 
 		g.drawPixmap(Assets.ready, 47, 100);
 		g.drawLine(0, 416, 480, 416, Color.BLACK);
 	}
 
-	private void drawRunningUI() {
+	public void drawRunningUI() {
 		Graphics g = game.getGraphics();
 
 		g.drawPixmap(Assets.buttons, 0, g.getHeight()-64, 64, 128, 64, 64);//tasto pausa
@@ -237,14 +152,14 @@ public class GameScreen extends Screen {
 		//      g.drawPixmap(Assets.buttons, 256, 416, 0, 64, 64, 64);
 	}
 
-	private void drawPausedUI() {
+	public void drawPausedUI() {
 		Graphics g = game.getGraphics();
 
 		g.drawPixmap(Assets.pause, 80, 100);
 		g.drawLine(0, 416, 480, 416, Color.BLACK);
 	}
 
-	private void drawGameOverUI() {
+	public void drawGameOverUI() {
 		Graphics g = game.getGraphics();
 
 		g.drawPixmap(Assets.gameOver, 62, 100);

@@ -7,10 +7,13 @@ public class World {
     static final int SCORE_INCREMENT = 10;
     static final float TICK_INITIAL = 0.5f;
     static final float TICK_DECREMENT = 0.05f;
-    
+    static final String MOD_NORMAL = "normal"; 
+    static final String MOD_RUSH = "rush";
+     
     public boolean gameOver = false;
 
     public int score = 0;
+    public int countDown = 0;
     
     Random random = new Random();
     float tickTime = 0;
@@ -24,18 +27,35 @@ public class World {
 	//variabili livello - per il momento uno solo
 	private int durataSecondiTarget = 2;
 	private int numTarget = 30;
+	private String modality;
 	
 	private TimeMachine contatore;
 
 	
-	public World(TargetGenerator tg, TimeMachine cont){
+	public World(TargetGenerator tg, TimeMachine cont, String mod){
 		listaTargetDaDisegnare=new ArrayList<Target>();
 		listaTutti = new ArrayList<Target>();
 		
 		this.tg = tg;
-		listaTutti = this.tg.getTargets();
 		
+		this.setModality(mod);
 		contatore= cont;
+	}
+	
+	public void setModality(String mod){
+		if (mod.equals(MOD_NORMAL)){
+			this.modality = MOD_NORMAL;
+			tg.setNumeroTargets(10);
+			tg.generateTargets();
+			listaTutti = this.tg.getTargets();
+		}
+		if (mod.equals(MOD_RUSH)){
+			this.modality=MOD_RUSH;
+			tg.setNumeroTargets(1);
+			tg.generateTargets();
+			listaTutti = this.tg.getTargets();
+		//	this.listaTutti.get(0).setAttesa(21);
+		}
 	}
 	
 	
@@ -45,9 +65,56 @@ public class World {
  * screen so that the World is updated constantly	
  */
     public void update(float deltaTime) {
+    	if (modality.equals(MOD_NORMAL)){
+    		updateNormal(deltaTime);
+    	}
+    	if (modality.equals(MOD_RUSH)){
+    		updateRush(deltaTime);
+    	}
+    }
+
+
+    private void updateRush(float deltaTime) {
+    	if (gameOver)
+    		return;
+    	
+    	this.listaTargetDaDisegnare = this.listaTutti;
+    	
+    	for (int i=0; i<this.listaTargetDaDisegnare.size(); i++){
+
+    		//invia notifica a tutti i target 
+
+    		if (this.listaTargetDaDisegnare.get(i).isCatched()){
+
+    			this.score+=SCORE_INCREMENT; //incrementa il punteggio
+
+    			updatePosition(this.listaTargetDaDisegnare.get(i));
+    			
+    			this.listaTargetDaDisegnare.get(i).setCatched(false);
+    		}
+    	}
+    	
+    	if(this.contatore.elapsedTime() >= 20) //se sono passati 20 secondi
+    		gameOver =true;
+    	
+    	double tmp = 20 - contatore.elapsedTime();
+    	if (tmp%1 == 0)
+    		countDown = (int) tmp;
+    }
+
+
+	private void updatePosition(Target target) {
+		int px=random.nextInt(this.tg.getSurfaceWidth()-target.getSfondo().getWidth());
+		int py=random.nextInt(this.tg.getSurfaceHeight()-target.getSfondo().getHeight());
+		target.setX(px);
+		target.setY(py);
+	}
+
+
+	private void updateNormal(float deltatime) {
+
         if (gameOver)
             return;
-
         
         //questo codice sarà eseguito solo se lo stato è RUNNING
         
@@ -86,9 +153,8 @@ public class World {
         	}
         }
         
-        tickTime += deltaTime;
+        tickTime += deltatime;
    
-        
-    }
+	}
 
 }

@@ -8,6 +8,7 @@ import it.unisa.bdsir_takearound.framework.Pixmap;
 public class TargetGenerator {
 	private ArrayList<Target> listaTarget = new ArrayList<Target>();
 	private int numeroTarget, surfaceWidth, surfaceHeight;
+
 	private Pixmap sfondo;
 	private Random mRnd;
 	
@@ -17,29 +18,36 @@ public class TargetGenerator {
 		numeroTarget = num;
 		this.sfondo = sfondo;
 		
-		generateTargets();
+	//	generateTargets();
 		
 	}
 	
-	public TargetGenerator(int num, Pixmap sfondo, int surfaceWidth, int surfaceHeight){
+	public TargetGenerator(Pixmap sfondo, int surfaceWidth, int surfaceHeight){
 		mRnd=new Random();
 		
 		this.surfaceHeight = surfaceHeight;
 		this.surfaceWidth = surfaceWidth;
 		
-		numeroTarget = num;
 		this.sfondo = sfondo;
 		
-		generateTargets();
+	//	generateTargets();
 	}
 	
-	private void generateTargets(){
+	public void setNumeroTargets(int numTarget){
+		this.numeroTarget = numTarget;
+	}
+	
+	/**
+	 * genera target con coordinate random
+	 */
+	public void generateTargets(){
 		int rx,ry, attesa=0;
 		
 		rx=mRnd.nextInt(surfaceWidth-sfondo.getWidth());
 		ry=mRnd.nextInt(surfaceHeight-sfondo.getHeight());
 		Target first = new Target(sfondo, 0, rx, ry);
 		first.setAttesa(0);
+		
 		listaTarget.add(first); 
 		
 		for(int i=1; i<numeroTarget; i++){
@@ -47,7 +55,7 @@ public class TargetGenerator {
 			rx=mRnd.nextInt(surfaceWidth-sfondo.getWidth());
 			ry=mRnd.nextInt(surfaceHeight-sfondo.getHeight());
 			
-			Target t = new Target(sfondo,i, rx, ry);
+			Target t = new Target(sfondo,i%10, rx, ry);
 			
 			if (i%2 == 0) attesa+=1;
 			if (i%2 == 1) attesa+=2;
@@ -58,7 +66,20 @@ public class TargetGenerator {
 		}
 	}
 	
+	/**
+	 * restituisce la lista di target creati in modo random
+	 * @return la lista di target creati in modo random
+	 */
 	public ArrayList<Target> getTargets(){
 		return listaTarget;
 	}
+	
+	public int getSurfaceWidth() {
+		return surfaceWidth;
+	}
+
+	public int getSurfaceHeight() {
+		return surfaceHeight;
+	}
+
 }

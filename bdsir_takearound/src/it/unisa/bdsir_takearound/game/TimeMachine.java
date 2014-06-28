@@ -1,7 +1,5 @@
 package it.unisa.bdsir_takearound.game;
 
-import java.util.TimerTask;
-
 public class TimeMachine extends Thread{
 	private boolean tickSent,running;
 	private double contatoreTick;	//tiene conto dei secondi
