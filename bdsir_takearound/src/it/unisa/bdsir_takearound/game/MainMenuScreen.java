@@ -2,10 +2,14 @@ package it.unisa.bdsir_takearound.game;
 
 import java.util.List;
 
+import android.content.Intent;
 import it.unisa.bdsir_takearound.framework.Game;
 import it.unisa.bdsir_takearound.framework.Graphics;
 import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
 import it.unisa.bdsir_takearound.framework.Screen;
+import it.unisa.bdsir_takearound.framework.impl.AndroidGame;
+import it.unisa.bdsir_takearound.ui.RecordActivity;
+import it.unisa.bdsir_takearound.ui.TutorialActivity;
 
 public class MainMenuScreen extends Screen {
     
@@ -41,13 +45,15 @@ public class MainMenuScreen extends Screen {
                     return;
                 }
                 if(inBounds(event, 25, 100, 90, 25) ) {
-                    game.setScreen(new HelpScreen(game));
+                    Intent intent = new Intent((AndroidGame) this.game, TutorialActivity.class);
+                    ((AndroidGame) this.game).startActivity(intent);
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                     return;
                 }
                 if(inBounds(event, 25, 150, 90, 25) ) {
-                    game.setScreen(new HighscoreScreen(game));
+                	Intent intent = new Intent((AndroidGame) this.game, RecordActivity.class);
+                    ((AndroidGame) this.game).startActivity(intent);
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                     return;

@@ -15,7 +15,7 @@ public class GameRushScreen extends GameScreen {
 	public GameRushScreen(Game game) {
 		super(game);
 		// TODO Auto-generated constructor stub
-		tg = new TargetGenerator(Assets.target,game.getGraphics().getWidth(),game.getGraphics().getHeight());
+		tg = new TargetGenerator(Assets.target,game.getGraphics().getWidth(),game.getGraphics().getHeight()-64);
 
 		contatore = new TimeMachine(); 
 		world = new World(tg, contatore, MOD_RUSH);
@@ -131,7 +131,7 @@ public class GameRushScreen extends GameScreen {
 
 		drawText(g, score, g.getWidth() / 2 - score.length()*20 / 2, g.getHeight() - 42);
 		
-		drawText(g, contoAllaRovescia, g.getWidth()/2 - contoAllaRovescia.length()*20 / 2, g.getHeight()-282);
+		drawText(g, contoAllaRovescia, g.getWidth()/2 - contoAllaRovescia.length()*20 / 2, g.getHeight()-320);
 	}
 
 	@Override

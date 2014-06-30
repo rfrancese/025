@@ -51,8 +51,8 @@ public class MainActivity extends Activity{
 		super.onStart();
 	}*/
 	protected void openLevelChoiceActivity() {
-		Intent intent = new Intent(this, LevelChoiceActivity.class);
-		startActivity(intent);
+	//	Intent intent = new Intent(this, LevelChoiceActivity.class);
+	//	startActivity(intent);
 	}
 
 	protected void openRecordActivity(View view) {

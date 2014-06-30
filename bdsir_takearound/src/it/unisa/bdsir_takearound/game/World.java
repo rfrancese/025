@@ -45,7 +45,7 @@ public class World {
 	public void setModality(String mod){
 		if (mod.equals(MOD_NORMAL)){
 			this.modality = MOD_NORMAL;
-			tg.setNumeroTargets(10);
+			tg.setNumeroTargets(20);
 			tg.generateTargets();
 			listaTutti = this.tg.getTargets();
 		}

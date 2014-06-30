@@ -19,13 +19,14 @@ public class GameNormalScreen extends GameScreen {
 	public GameNormalScreen(Game game) {
 		super(game);
 		// TODO Auto-generated constructor stub
-		tg = new TargetGenerator(Assets.target,game.getGraphics().getWidth(),game.getGraphics().getHeight());
+		tg = new TargetGenerator(Assets.target,game.getGraphics().getWidth(),game.getGraphics().getHeight()-64);
 
 		contatore = new TimeMachine(); 
 		world = new World(tg, contatore, MOD_NORMAL);
 		
 		Assets.audioNormal = game.getAudio().newMusic("medio.ogg");
 		audio = Assets.audioNormal;
+		audio.setLooping(true);
 	}
 
 	@Override
