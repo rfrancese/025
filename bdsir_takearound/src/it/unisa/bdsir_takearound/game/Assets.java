@@ -1,10 +1,12 @@
 package it.unisa.bdsir_takearound.game;
 
+import it.unisa.bdsir_takearound.framework.Music;
 import it.unisa.bdsir_takearound.framework.Pixmap;
 import it.unisa.bdsir_takearound.framework.Sound;
 
 public class Assets {
     public static Pixmap background;
+    public static Pixmap backgroundNormal;
     public static Pixmap logo;
     public static Pixmap mainMenu;
     public static Pixmap buttons;
@@ -25,4 +27,6 @@ public class Assets {
     public static Sound click;
     public static Sound eat;
     public static Sound bitten;
+    
+    public static Music audioNormal;
 }

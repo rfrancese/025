@@ -6,11 +6,15 @@ import it.unisa.bdsir_takearound.framework.Game;
 import it.unisa.bdsir_takearound.framework.Graphics;
 import it.unisa.bdsir_takearound.framework.Input;
 import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
+import it.unisa.bdsir_takearound.framework.Music;
+import it.unisa.bdsir_takearound.game.GameScreen.GameState;
 
 
 public class GameNormalScreen extends GameScreen {
 	
 	static final String MOD_NORMAL = "normal";
+	
+	private Music audio;
 
 	public GameNormalScreen(Game game) {
 		super(game);
@@ -20,6 +24,8 @@ public class GameNormalScreen extends GameScreen {
 		contatore = new TimeMachine(); 
 		world = new World(tg, contatore, MOD_NORMAL);
 		
+		Assets.audioNormal = game.getAudio().newMusic("medio.ogg");
+		audio = Assets.audioNormal;
 	}
 
 	@Override
@@ -41,8 +47,17 @@ public class GameNormalScreen extends GameScreen {
 			updateGameOver(touchEvents);
 	}
 	
-
+	protected void updateReady(List<TouchEvent> touchEvents) {
+		if(touchEvents.size() > 0){
+			state = GameState.Running;
+			
+			audio.play();
+			contatore.start();
+		}
+	}
+	
 	private void updateRunning(List<TouchEvent> touchEvents, List<Input.KeyEvent> keyEvents, float deltaTime) {
+		
 		
 		int len = touchEvents.size();
 		for(int i = 0; i < len; i++) {
@@ -51,8 +66,8 @@ public class GameNormalScreen extends GameScreen {
 				if(event.x < 64 && event.y > game.getGraphics().getHeight()-64) {//se l'utente preme il tasto di pausa
 					if(Settings.soundEnabled)
 						Assets.click.play(1);
-
-					state = GameState.Paused;
+					if (audio.isPlaying()) audio.pause();
+					state = GameState.Paused;					
 					
 					contatore.pausa();
 					return;
@@ -109,6 +124,65 @@ public class GameNormalScreen extends GameScreen {
 		}
 	}
 
+	
+	protected void updatePaused(List<TouchEvent> touchEvents) {
+		
+		
+		int len = touchEvents.size();
+		for(int i = 0; i < len; i++) {
+			TouchEvent event = touchEvents.get(i);
+			if(event.type == TouchEvent.TOUCH_UP) {
+				if(event.x > 80 && event.x <= 240) {
+					if(event.y > 100 && event.y <= 148) {
+						if(Settings.soundEnabled)
+							Assets.click.play(1);
+
+						if (!audio.isPlaying()) audio.play();
+						
+						contatore.continueRunning();
+						
+						state = GameState.Running;
+						
+						return;
+					}                    
+					if(event.y > 148 && event.y < 196) {//chiude la schermata di gioco e torna al menu
+						if(Settings.soundEnabled)
+							Assets.click.play(1);
+						
+						audio.dispose();
+						
+						game.setScreen(new MainMenuScreen(game));                        
+						return;
+					}
+				}
+			}
+		}
+	}
+	
+	protected void updateGameOver(List<TouchEvent> touchEvents) {
+
+		if (!audio.isStopped() || audio.isPlaying()){
+		//	audio.pause();
+			audio.stop();
+		//	audio.dispose();
+		}
+		
+		int len = touchEvents.size();
+		for(int i = 0; i < len; i++) {
+			TouchEvent event = touchEvents.get(i);
+			if(event.type == TouchEvent.TOUCH_UP) {
+				if(event.x >= 128 && event.x <= 192 &&
+						event.y >= 200 && event.y <= 264) {
+					if(Settings.soundEnabled)
+						Assets.click.play(1);
+					
+					game.setScreen(new MainMenuScreen(game));
+					return;
+				}
+			}
+		}
+	}
+
 	@Override
 	public void drawText(Graphics g, String line, int x, int y) {
 		// TODO Auto-generated method stub
@@ -119,7 +193,7 @@ public class GameNormalScreen extends GameScreen {
 	public void present(float deltaTime) {
 		Graphics g = game.getGraphics();
 
-		g.drawPixmap(Assets.background, 0, 0);
+		g.drawPixmap(Assets.backgroundNormal, 0, 0);
 		drawWorld(world);
 
 		if(state == GameState.Ready) 
