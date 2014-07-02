@@ -19,7 +19,8 @@ import it.unisa.bdsir_takearound.framework.Input;
 import it.unisa.bdsir_takearound.framework.Screen;
 
 public abstract class AndroidGame extends Activity implements Game {
-    AndroidFastRenderView renderView;
+
+	AndroidFastRenderView renderView;
     Graphics graphics;
     Audio audio;
     Input input;
@@ -112,4 +113,11 @@ public abstract class AndroidGame extends Activity implements Game {
     public Screen getCurrentScreen() {
         return screen;
     }
+    
+
+	@Override
+	protected void onStop() {
+		screen.stopGioco();
+		super.onStop();
+	}
 }

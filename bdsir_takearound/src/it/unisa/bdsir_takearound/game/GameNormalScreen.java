@@ -14,7 +14,6 @@ public class GameNormalScreen extends GameScreen {
 	
 	static final String MOD_NORMAL = "normal";
 	
-	private Music audio;
 
 	public GameNormalScreen(Game game) {
 		super(game);
@@ -48,14 +47,7 @@ public class GameNormalScreen extends GameScreen {
 			updateGameOver(touchEvents);
 	}
 	
-	protected void updateReady(List<TouchEvent> touchEvents) {
-		if(touchEvents.size() > 0){
-			state = GameState.Running;
-			
-			audio.play();
-			contatore.start();
-		}
-	}
+
 	
 	private void updateRunning(List<TouchEvent> touchEvents, List<Input.KeyEvent> keyEvents, float deltaTime) {
 		
@@ -67,7 +59,7 @@ public class GameNormalScreen extends GameScreen {
 				if(event.x < 64 && event.y > game.getGraphics().getHeight()-64) {//se l'utente preme il tasto di pausa
 					if(Settings.soundEnabled)
 						Assets.click.play(1);
-					pausa();
+					pausaGioco();
 					return;
 				}
 			}
@@ -123,13 +115,7 @@ public class GameNormalScreen extends GameScreen {
 	}
 
 	
-	protected void pausa() {
-		if (audio.isPlaying()) audio.pause();
-		state = GameState.Paused;					
-		
-		contatore.pausa();
-		
-	}
+
 
 	protected void updatePaused(List<TouchEvent> touchEvents) {
 		
@@ -216,18 +202,19 @@ public class GameNormalScreen extends GameScreen {
 
 	@Override
 	public void pause() {
-		pausa();
+		
+		super.pause();
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
+		
 		super.resume();
 	}
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
+		
 		super.dispose();
 	}
 

@@ -6,10 +6,14 @@ import java.util.List;
 import android.graphics.Color;
 import it.unisa.bdsir_takearound.framework.Game;
 import it.unisa.bdsir_takearound.framework.Graphics;
+import it.unisa.bdsir_takearound.framework.Music;
 import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
 import it.unisa.bdsir_takearound.framework.Screen;
 
 public abstract class GameScreen extends Screen {
+
+	protected Music audio;
+	
 	public GameScreen(Game game) {
 		super(game);
 		// TODO Auto-generated constructor stub
@@ -43,6 +47,7 @@ public abstract class GameScreen extends Screen {
 		if(touchEvents.size() > 0){
 			state = GameState.Running;
 			
+			audio.play();
 			contatore.start();
 		}
 	}
@@ -88,6 +93,15 @@ public abstract class GameScreen extends Screen {
 				}
 			}
 		}
+	}
+	
+	
+	protected void pausaGioco() {
+		if (audio.isPlaying()) audio.pause();
+		state = GameState.Paused;					
+		
+		contatore.pausa();
+		
 	}
 
 
@@ -175,16 +189,24 @@ public abstract class GameScreen extends Screen {
 
 	@Override
 	public void pause() {
+		pausaGioco();
 		
 	}
 
 	@Override
 	public void resume() {
-		contatore.continueRunning();
+		
+		
 	}
 
 	@Override
 	public void dispose() {
+	//	pausaGioco();
+	}
+	
+	public void stopGioco(){
+		audio.dispose();
 		
+		game.setScreen(new MainMenuScreen(game));
 	}
 }

@@ -77,4 +77,10 @@ public class LoadingScreen extends Screen {
     public void dispose() {
 
     }
+
+	@Override
+	public void stopGioco() {
+		// TODO Auto-generated method stub
+		
+	}
 }

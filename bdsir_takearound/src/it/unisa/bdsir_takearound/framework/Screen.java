@@ -16,4 +16,6 @@ public abstract class Screen {
     public abstract void resume();
 
     public abstract void dispose();
+
+	public abstract void stopGioco();
 }
