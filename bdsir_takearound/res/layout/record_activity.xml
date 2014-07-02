@@ -3,13 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <fragment
-        android:id="@+id/fragment1"
-        android:name="it.unisa.bdsir_takearound.entities.MyFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="73dp" />
+    <ListView  
+    android:id="@+id/listViewRecordNormal"
+    android:layout_width="match_parent"   
+    android:layout_height="match_parent"  
+    android:layout_centerHorizontal="true"  
+    android:layout_marginTop="15dp" >
+    
+    </ListView>
+    
+    <ListView  
+    android:id="@+id/listViewRecordRush"
+    android:layout_width="match_parent"   
+    android:layout_height="match_parent"  
+    android:layout_centerHorizontal="true"  
+    android:layout_marginTop="15dp" >
+    
+    </ListView>  
 
 </RelativeLayout>

@@ -175,8 +175,10 @@ public abstract class GameScreen extends Screen {
 
 	@Override
 	public void pause() {
-		if(state == GameState.Running)
+		if(state == GameState.Running){
 			state = GameState.Paused;
+			contatore.pausa();
+		}
 
 		if(world.gameOver) {
 			Settings.addScore(world.score);
@@ -186,7 +188,7 @@ public abstract class GameScreen extends Screen {
 
 	@Override
 	public void resume() {
-
+		contatore.continueRunning();
 	}
 
 	@Override
