@@ -8,4 +8,13 @@ public class TakeARoundGame extends AndroidGame {
     public Screen getStartScreen() {
         return new LoadingScreen(this); 
     }
+
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		//super.onBackPressed();
+		this.screen.pause();
+	}
+    
+    
 }

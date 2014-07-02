@@ -67,10 +67,7 @@ public class GameNormalScreen extends GameScreen {
 				if(event.x < 64 && event.y > game.getGraphics().getHeight()-64) {//se l'utente preme il tasto di pausa
 					if(Settings.soundEnabled)
 						Assets.click.play(1);
-					if (audio.isPlaying()) audio.pause();
-					state = GameState.Paused;					
-					
-					contatore.pausa();
+					pausa();
 					return;
 				}
 			}
@@ -126,6 +123,14 @@ public class GameNormalScreen extends GameScreen {
 	}
 
 	
+	protected void pausa() {
+		if (audio.isPlaying()) audio.pause();
+		state = GameState.Paused;					
+		
+		contatore.pausa();
+		
+	}
+
 	protected void updatePaused(List<TouchEvent> touchEvents) {
 		
 		
@@ -211,8 +216,7 @@ public class GameNormalScreen extends GameScreen {
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
-		super.pause();
+		pausa();
 	}
 
 	@Override

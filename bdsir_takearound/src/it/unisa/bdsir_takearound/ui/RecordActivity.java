@@ -31,10 +31,10 @@ public class RecordActivity extends Activity {
 		{
 			while (c.moveToNext())
 			{
-				if (c.getString(2).equals("normal"))
-					punteggiNormal.add(c.getString(1));
-				else if (c.getString(2).equals("rush"))
-					punteggiRush.add(c.getString(1));
+				if (c.getString(1).equals("normal"))
+					punteggiNormal.add(c.getString(0));
+				else if (c.getString(1).equals("rush"))
+					punteggiRush.add(c.getString(0));
 			}
 		}
 		finally

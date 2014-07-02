@@ -24,7 +24,7 @@ public abstract class AndroidGame extends Activity implements Game {
     Audio audio;
     Input input;
     FileIO fileIO;
-    Screen screen;
+    protected Screen screen;
     WakeLock wakeLock;
 
     @Override
@@ -102,7 +102,7 @@ public abstract class AndroidGame extends Activity implements Game {
         if (screen == null)
             throw new IllegalArgumentException("Screen must not be null");
 
-        this.screen.pause();
+    //    this.screen.pause(); //commentato perchè abbiamo sovrascritto pause() e dentro gestiamo audio e stati, cosa che porta ad errore il set screen
         this.screen.dispose();
         screen.resume();
         screen.update(0);
