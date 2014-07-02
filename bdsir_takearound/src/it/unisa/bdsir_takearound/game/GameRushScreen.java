@@ -205,33 +205,25 @@ public class GameRushScreen extends GameScreen {
 		
 		drawText(g, contoAllaRovescia, g.getWidth()/2 - contoAllaRovescia.length()*20 / 2, g.getHeight()-320);
 	}
-	
-	protected void pausa() {
-		if (audio.isPlaying()) audio.pause();
-		state = GameState.Paused;					
-		
-		contatore.pausa();
-		
-	}
+
 
 	@Override
 	public void pause() {
-		pausa();
+		pausaGioco();
+		super.pause();
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
+		
 		super.resume();
 	}
 
 	@Override
 	public void dispose() {
 		
-	/*	audio.dispose();
+	
 		
-		game.setScreen(new MainMenuScreen(game));
-	*/	
 	}
 
 }
