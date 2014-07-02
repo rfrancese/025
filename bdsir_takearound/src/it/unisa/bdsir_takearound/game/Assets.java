@@ -28,6 +28,8 @@ public class Assets {
     public static Sound eat;
     public static Sound bitten;
     
-    public static Music audioNormal;
+    public static Music audioNormal1;
+    public static Music audioNormal2;
+    public static Music audioNormal3;
     public static Music audioRush;
 }

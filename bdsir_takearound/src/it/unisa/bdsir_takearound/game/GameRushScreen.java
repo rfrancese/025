@@ -22,8 +22,8 @@ public class GameRushScreen extends GameScreen {
 		contatore = new TimeMachine(); 
 		world = new World(tg, contatore, MOD_RUSH);
 		
-		Assets.audioNormal = game.getAudio().newMusic("rush.ogg");
-		audio = Assets.audioNormal;
+		Assets.audioRush = game.getAudio().newMusic("rush.ogg");
+		audio = Assets.audioRush;
 		audio.setLooping(true);
 	}
 
@@ -205,11 +205,18 @@ public class GameRushScreen extends GameScreen {
 		
 		drawText(g, contoAllaRovescia, g.getWidth()/2 - contoAllaRovescia.length()*20 / 2, g.getHeight()-320);
 	}
+	
+	protected void pausa() {
+		if (audio.isPlaying()) audio.pause();
+		state = GameState.Paused;					
+		
+		contatore.pausa();
+		
+	}
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
-		super.pause();
+		pausa();
 	}
 
 	@Override
@@ -220,8 +227,11 @@ public class GameRushScreen extends GameScreen {
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
-		super.dispose();
+		
+	/*	audio.dispose();
+		
+		game.setScreen(new MainMenuScreen(game));
+	*/	
 	}
 
 }

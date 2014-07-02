@@ -32,7 +32,9 @@ public class LoadingScreen extends Screen {
     	Assets.eat = game.getAudio().newSound("eat.ogg");
     	Assets.bitten = game.getAudio().newSound("bitten.ogg");
     	
-    	Assets.audioNormal = game.getAudio().newMusic("medio.ogg");
+    	Assets.audioNormal1 = game.getAudio().newMusic("facile.ogg");
+    	Assets.audioNormal2 = game.getAudio().newMusic("medio.ogg");
+    	Assets.audioNormal3 = game.getAudio().newMusic("difficile.ogg");
     	Assets.audioRush = game.getAudio().newMusic("rush.ogg");
 
     	Assets.background = g.newPixmap("menu_incompleto_mod.png", PixmapFormat.RGB565);
