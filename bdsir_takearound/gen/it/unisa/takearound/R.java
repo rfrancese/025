@@ -19,7 +19,8 @@ public final class R {
         public static final int buttonRecord=0x7f07000b;
         public static final int buttonTutorial=0x7f07000a;
         public static final int customView1=0x7f070001;
-        public static final int fragment1=0x7f07000d;
+        public static final int listViewRecordNormal=0x7f07000d;
+        public static final int listViewRecordRush=0x7f07000e;
         public static final int radio0=0x7f070003;
         public static final int radio1=0x7f070004;
         public static final int radio2=0x7f070005;
@@ -27,10 +28,11 @@ public final class R {
         public static final int radioGroup2=0x7f070009;
         public static final int textView1=0x7f070007;
         public static final int textView2=0x7f070008;
+        public static final int textViewList=0x7f07000f;
         public static final int textViewScore=0x7f070000;
-        public static final int textViewTutorialENG=0x7f07000f;
-        public static final int textViewTutorialITA=0x7f070010;
-        public static final int textViewTutorialSPA=0x7f07000e;
+        public static final int textViewTutorialENG=0x7f070011;
+        public static final int textViewTutorialITA=0x7f070012;
+        public static final int textViewTutorialSPA=0x7f070010;
     }
     public static final class layout {
         public static final int game_activity=0x7f030000;
@@ -38,8 +40,9 @@ public final class R {
         public static final int main_activity=0x7f030002;
         public static final int myfragment_layout=0x7f030003;
         public static final int record_activity=0x7f030004;
-        public static final int target_view=0x7f030005;
-        public static final int tutorial_activity=0x7f030006;
+        public static final int row=0x7f030005;
+        public static final int target_view=0x7f030006;
+        public static final int tutorial_activity=0x7f030007;
     }
     public static final class raw {
         public static final int difficile=0x7f040000;
