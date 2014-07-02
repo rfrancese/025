@@ -14,25 +14,25 @@ public final class R {
         public static final int takearound_ic=0x7f020000;
     }
     public static final class id {
-        public static final int button1=0x7f070006;
-        public static final int buttonGioca=0x7f07000c;
-        public static final int buttonRecord=0x7f07000b;
-        public static final int buttonTutorial=0x7f07000a;
-        public static final int customView1=0x7f070001;
-        public static final int listViewRecordNormal=0x7f07000d;
-        public static final int listViewRecordRush=0x7f07000e;
-        public static final int radio0=0x7f070003;
-        public static final int radio1=0x7f070004;
-        public static final int radio2=0x7f070005;
-        public static final int radioGroup1=0x7f070002;
-        public static final int radioGroup2=0x7f070009;
-        public static final int textView1=0x7f070007;
-        public static final int textView2=0x7f070008;
-        public static final int textViewList=0x7f07000f;
-        public static final int textViewScore=0x7f070000;
-        public static final int textViewTutorialENG=0x7f070011;
-        public static final int textViewTutorialITA=0x7f070012;
-        public static final int textViewTutorialSPA=0x7f070010;
+        public static final int button1=0x7f060006;
+        public static final int buttonGioca=0x7f06000c;
+        public static final int buttonRecord=0x7f06000b;
+        public static final int buttonTutorial=0x7f06000a;
+        public static final int customView1=0x7f060001;
+        public static final int listViewRecordNormal=0x7f06000d;
+        public static final int listViewRecordRush=0x7f06000e;
+        public static final int radio0=0x7f060003;
+        public static final int radio1=0x7f060004;
+        public static final int radio2=0x7f060005;
+        public static final int radioGroup1=0x7f060002;
+        public static final int radioGroup2=0x7f060009;
+        public static final int textView1=0x7f060007;
+        public static final int textView2=0x7f060008;
+        public static final int textViewList=0x7f06000f;
+        public static final int textViewScore=0x7f060000;
+        public static final int textViewTutorialENG=0x7f060011;
+        public static final int textViewTutorialITA=0x7f060012;
+        public static final int textViewTutorialSPA=0x7f060010;
     }
     public static final class layout {
         public static final int game_activity=0x7f030000;
@@ -44,19 +44,14 @@ public final class R {
         public static final int target_view=0x7f030006;
         public static final int tutorial_activity=0x7f030007;
     }
-    public static final class raw {
-        public static final int difficile=0x7f040000;
-        public static final int facile=0x7f040001;
-        public static final int medio=0x7f040002;
-    }
     public static final class string {
-        public static final int app_name=0x7f050000;
-        public static final int gioca=0x7f050001;
-        public static final int records=0x7f050002;
-        public static final int tutorial=0x7f050003;
-        public static final int tutorialENG=0x7f050004;
-        public static final int tutorialITA=0x7f050005;
-        public static final int tutorialSPA=0x7f050006;
+        public static final int app_name=0x7f040000;
+        public static final int gioca=0x7f040001;
+        public static final int records=0x7f040002;
+        public static final int tutorial=0x7f040003;
+        public static final int tutorialENG=0x7f040004;
+        public static final int tutorialITA=0x7f040005;
+        public static final int tutorialSPA=0x7f040006;
     }
     public static final class style {
         /** 
@@ -80,10 +75,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f050000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f050001;
     }
 }
