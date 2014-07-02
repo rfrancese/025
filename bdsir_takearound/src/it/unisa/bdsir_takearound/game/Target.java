@@ -7,7 +7,7 @@ public class Target {
 	private int numero;
 	private Pixmap sfondo,num;
 	private boolean catched;
-	private int attesa;
+	private double attesa;
 	
 	public Target(Pixmap sfondo, int num){
 		this.sfondo = sfondo;
@@ -89,14 +89,14 @@ public class Target {
 	/**
 	 * @return the attesa
 	 */
-	public int getAttesa() {
+	public double getAttesa() {
 		return attesa;
 	}
 
 	/**
 	 * @param attesa the attesa to set
 	 */
-	public void setAttesa(int attesa) {
+	public void setAttesa(double attesa) {
 		this.attesa = attesa;
 	}
 

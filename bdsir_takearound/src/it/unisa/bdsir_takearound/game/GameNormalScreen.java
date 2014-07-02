@@ -45,7 +45,6 @@ public class GameNormalScreen extends GameScreen {
 		}
 		default: break;
 		}
-		System.out.println();
 		audio.setLooping(true);
 	}
 
