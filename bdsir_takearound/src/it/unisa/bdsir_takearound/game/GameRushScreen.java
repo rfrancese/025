@@ -6,11 +6,13 @@ import it.unisa.bdsir_takearound.framework.Game;
 import it.unisa.bdsir_takearound.framework.Graphics;
 import it.unisa.bdsir_takearound.framework.Input;
 import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
+import it.unisa.bdsir_takearound.framework.Music;
 import it.unisa.bdsir_takearound.game.GameScreen.GameState;
 
 public class GameRushScreen extends GameScreen {
 	
 	static final String MOD_RUSH = "rush";
+	private Music audio;
 
 	public GameRushScreen(Game game) {
 		super(game);
@@ -20,6 +22,9 @@ public class GameRushScreen extends GameScreen {
 		contatore = new TimeMachine(); 
 		world = new World(tg, contatore, MOD_RUSH);
 		
+		Assets.audioNormal = game.getAudio().newMusic("rush.ogg");
+		audio = Assets.audioNormal;
+		audio.setLooping(true);
 	}
 
 	@Override
@@ -41,6 +46,15 @@ public class GameRushScreen extends GameScreen {
 		
 	}
 	
+	protected void updateReady(List<TouchEvent> touchEvents) {
+		if(touchEvents.size() > 0){
+			state = GameState.Running;
+			
+			audio.play();
+			contatore.start();
+		}
+	}
+	
 	private void updateRunning(List<TouchEvent> touchEvents, List<Input.KeyEvent> keyEvents, float deltaTime) {
 		
 		int len = touchEvents.size();
@@ -50,7 +64,7 @@ public class GameRushScreen extends GameScreen {
 				if(event.x < 64 && event.y > game.getGraphics().getHeight()-64) {//se l'utente preme il tasto di pausa
 					if(Settings.soundEnabled)
 						Assets.click.play(1);
-
+					if (audio.isPlaying()) audio.pause();
 					state = GameState.Paused;
 					
 					contatore.pausa();
@@ -109,6 +123,64 @@ public class GameRushScreen extends GameScreen {
 		for (int k=0; k<keyEvents.size(); k++){
 			if (keyEvents.get(k).keyCode == android.view.KeyEvent.KEYCODE_BACK || keyEvents.get(k).keyCode == android.view.KeyEvent.KEYCODE_POWER)
 				state = GameState.Paused;
+		}
+	}
+	
+	protected void updatePaused(List<TouchEvent> touchEvents) {
+		
+		
+		int len = touchEvents.size();
+		for(int i = 0; i < len; i++) {
+			TouchEvent event = touchEvents.get(i);
+			if(event.type == TouchEvent.TOUCH_UP) {
+				if(event.x > 80 && event.x <= 240) {
+					if(event.y > 100 && event.y <= 148) {
+						if(Settings.soundEnabled)
+							Assets.click.play(1);
+
+						if (!audio.isPlaying()) audio.play();
+						
+						contatore.continueRunning();
+						
+						state = GameState.Running;
+						
+						return;
+					}                    
+					if(event.y > 148 && event.y < 196) {//chiude la schermata di gioco e torna al menu
+						if(Settings.soundEnabled)
+							Assets.click.play(1);
+						
+						audio.dispose();
+						
+						game.setScreen(new MainMenuScreen(game));                        
+						return;
+					}
+				}
+			}
+		}
+	}
+	
+	protected void updateGameOver(List<TouchEvent> touchEvents) {
+
+		if (!audio.isStopped() || audio.isPlaying()){
+		//	audio.pause();
+			audio.stop();
+		//	audio.dispose();
+		}
+		
+		int len = touchEvents.size();
+		for(int i = 0; i < len; i++) {
+			TouchEvent event = touchEvents.get(i);
+			if(event.type == TouchEvent.TOUCH_UP) {
+				if(event.x >= 128 && event.x <= 192 &&
+						event.y >= 200 && event.y <= 264) {
+					if(Settings.soundEnabled)
+						Assets.click.play(1);
+					
+					game.setScreen(new MainMenuScreen(game));
+					return;
+				}
+			}
 		}
 	}
 

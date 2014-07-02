@@ -29,4 +29,5 @@ public class Assets {
     public static Sound bitten;
     
     public static Music audioNormal;
+    public static Music audioRush;
 }
