@@ -20,6 +20,7 @@ public class Assets {
     public static Pixmap ready;
     public static Pixmap pause;
     public static Pixmap gameOver;
+    public static Pixmap win;
     
     public static Pixmap playbutton;
     public static Pixmap tutorialbutton;

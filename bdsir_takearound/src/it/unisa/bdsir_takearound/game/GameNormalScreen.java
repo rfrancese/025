@@ -65,10 +65,37 @@ public class GameNormalScreen extends GameScreen {
 
 		if(state == GameState.GameOver)
 			updateGameOver(touchEvents);
+		
+		if(state == GameState.Victory)
+			updateWin(touchEvents);
 	}
 	
 
 	
+	private void updateWin(List<TouchEvent> touchEvents) {
+
+		if (!audio.isStopped() || audio.isPlaying()){
+		//	audio.pause();
+			audio.stop();
+		//	audio.dispose();
+		}
+		
+		int len = touchEvents.size();
+		for(int i = 0; i < len; i++) {
+			TouchEvent event = touchEvents.get(i);
+			if(event.type == TouchEvent.TOUCH_UP) {
+				if(event.x >= 128 && event.x <= 192 &&
+						event.y >= 200 && event.y <= 264) {
+					if(Settings.soundEnabled)
+						Assets.click.play(1);
+					
+					game.setScreen(new MainMenuScreen(game));
+					return;
+				}
+			}
+		}		
+	}
+
 	private void updateRunning(List<TouchEvent> touchEvents, List<Input.KeyEvent> keyEvents, float deltaTime) {
 		
 		
@@ -121,6 +148,10 @@ public class GameNormalScreen extends GameScreen {
 				Assets.bitten.play(1);
 			state = GameState.GameOver;
 		}
+		
+		if(world.win)
+			state = GameState.Victory;
+		
 		if(oldScore != world.score) {
 			oldScore = world.score;
 			score = "" + oldScore;
@@ -229,7 +260,8 @@ public class GameNormalScreen extends GameScreen {
 			drawPausedUI();
 		if(state == GameState.GameOver)
 			drawGameOverUI();
-
+		if(state == GameState.Victory)
+			drawWinUI();
 		drawText(g, score, g.getWidth() / 2 - score.length()*20 / 2, g.getHeight() - 42);
 	}
 

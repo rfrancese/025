@@ -12,7 +12,8 @@ public class World {
     static int colpitoAttuale = 999;
      
     public boolean gameOver = false;
-
+    public boolean win = false;
+    
     public int score = 0;
     public int countDown = 0;
     
@@ -96,7 +97,7 @@ public class World {
     	}
     	
     	if(this.contatore.elapsedTime() >= 20) //se sono passati 20 secondi
-    		gameOver =true;
+    		win =true;
     	
     	double tmp = 20 - contatore.elapsedTime();
     	if (tmp%1 == 0)
@@ -116,6 +117,9 @@ public class World {
 
         if (gameOver)
             return;
+        
+        if(listaTutti.size()==0 && listaTargetDaDisegnare.size() == 0)
+        	this.win = true;
         
         //questo codice sarà eseguito solo se lo stato è RUNNING
         
@@ -160,6 +164,8 @@ public class World {
         	}
         }
         
+       
+        
         tickTime += deltatime;
    
 	}
@@ -182,15 +188,15 @@ public class World {
 		switch(targ.getNumero())
 		{
 			
-			case 1: if (colpitoPrecedente==0) return true;
-			case 2: if (colpitoPrecedente==1) return true;
-			case 3: if (colpitoPrecedente==2) return true;
-			case 4: if (colpitoPrecedente==3) return true;
-			case 5: if (colpitoPrecedente==4) return true;
-			case 6: if (colpitoPrecedente==5) return true;
-			case 7: if (colpitoPrecedente==6) return true;
-			case 8: if (colpitoPrecedente==7) return true;
-			case 9: if (colpitoPrecedente==8) return true;
+			case 1: if (colpitoPrecedente<=0) return true;
+			case 2: if (colpitoPrecedente<=1) return true;
+			case 3: if (colpitoPrecedente<=2) return true;
+			case 4: if (colpitoPrecedente<=3) return true;
+			case 5: if (colpitoPrecedente<=4) return true;
+			case 6: if (colpitoPrecedente<=5) return true;
+			case 7: if (colpitoPrecedente<=6) return true;
+			case 8: if (colpitoPrecedente<=7) return true;
+			case 9: if (colpitoPrecedente<=8) return true;
 			default: return false;
 		}
 		

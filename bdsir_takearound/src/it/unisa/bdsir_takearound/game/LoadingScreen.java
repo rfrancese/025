@@ -29,6 +29,8 @@ public class LoadingScreen extends Screen {
     	Assets.ready = g.newPixmap("ready.png", PixmapFormat.ARGB4444);
     	Assets.pause = g.newPixmap("pausemenu.png", PixmapFormat.ARGB4444);
     	Assets.gameOver = g.newPixmap("gameovernewmod.png", PixmapFormat.ARGB4444);
+    	Assets.win = g.newPixmap("winnewmod.png", PixmapFormat.ARGB4444);
+
 
 
     	Assets.click = game.getAudio().newSound("click.ogg");
