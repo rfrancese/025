@@ -65,7 +65,7 @@ public class MainMenuScreen extends Screen {
                         Assets.click.play(1);
                     return;
                 }
-                if(inBounds(event, g.getWidth()-110, 210, g.getWidth()-50, 270) ) {
+                if(inBounds(event, g.getWidth()-110, 210, g.getWidth()-50, 270) ) {//bottone da modificare
                 	 Intent intent = new Intent((AndroidGame) this.game, TutorialActivity.class);
                      ((AndroidGame) this.game).startActivity(intent);
                      if(Settings.soundEnabled)
