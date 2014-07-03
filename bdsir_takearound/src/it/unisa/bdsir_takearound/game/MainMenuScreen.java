@@ -65,6 +65,13 @@ public class MainMenuScreen extends Screen {
                         Assets.click.play(1);
                     return;
                 }
+                if(inBounds(event, g.getWidth()-110, 210, g.getWidth()-50, 270) ) {
+                	 Intent intent = new Intent((AndroidGame) this.game, TutorialActivity.class);
+                     ((AndroidGame) this.game).startActivity(intent);
+                     if(Settings.soundEnabled)
+                         Assets.click.play(1);
+                     return;
+                }
             }
         }
     }
@@ -94,6 +101,7 @@ public class MainMenuScreen extends Screen {
       //  g.drawPixmap(Assets.playbutton, 120, 50);
         g.drawPixmap(Assets.tutorialbutton, g.getWidth()-110, 50);
         g.drawPixmap(Assets.recordbutton, g.getWidth()-180, 130);
+        g.drawPixmap(Assets.tutorialbutton, g.getWidth()-110, 210);
     }
 
     @Override
