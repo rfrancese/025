@@ -43,14 +43,14 @@ public class LoadingScreen extends Screen {
     	Assets.audioNormal3 = game.getAudio().newMusic("difficile.ogg");
     	Assets.audioRush = game.getAudio().newMusic("rush.ogg");
 
-    	Assets.background = g.newPixmap("menu_incompleto_mod.png", PixmapFormat.RGB565);
+    	Assets.background = g.newPixmap("sfondo3mod.jpg", PixmapFormat.RGB565);
     	Assets.playnormalbutton = g.newPixmap("playnormalmod.png", PixmapFormat.ARGB4444);
     	Assets.playrushbutton = g.newPixmap("playrushmod.png", PixmapFormat.ARGB4444);
 
 
     	//Assets.playbutton = g.newPixmap("play.png", PixmapFormat.ARGB4444);
-    	Assets.tutorialbutton = g.newPixmap("pulsante_tutorial.png", PixmapFormat.ARGB4444);
-    	Assets.recordbutton = g.newPixmap("pulsante_record.png", PixmapFormat.ARGB4444);
+    	Assets.tutorialbutton = g.newPixmap("tutorialmod.png", PixmapFormat.ARGB4444);
+    	Assets.recordbutton = g.newPixmap("recordmod.png", PixmapFormat.ARGB4444);
 
     	//caricamento immagini numeri
     	Assets.num0 = g.newPixmap("default-0.png", PixmapFormat.ARGB4444);
