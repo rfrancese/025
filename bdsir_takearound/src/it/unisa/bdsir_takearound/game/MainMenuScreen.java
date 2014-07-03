@@ -38,7 +38,7 @@ public class MainMenuScreen extends Screen {
                         Assets.click.play(1);
                     return;
                 }
-                if(inBounds(event, 70, 50, 90, 25) ) {//play in modalità RUSH
+                if(inBounds(event, 120, 50, 90, 25) ) {//play in modalità RUSH
                     game.setScreen(new GameRushScreen(game));
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
@@ -82,7 +82,7 @@ public class MainMenuScreen extends Screen {
 //        else
 //            g.drawPixmap(Assets.buttons, 0, 416, 64, 0, 64, 64);
         g.drawPixmap(Assets.playbutton, 25, 50);
-        g.drawPixmap(Assets.playbutton, 70, 50);
+        g.drawPixmap(Assets.playbutton, 120, 50);
         g.drawPixmap(Assets.tutorialbutton, 25, 100);
         g.drawPixmap(Assets.recordbutton, 25, 150);
     }

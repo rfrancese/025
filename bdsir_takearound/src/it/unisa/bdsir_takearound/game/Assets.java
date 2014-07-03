@@ -7,6 +7,9 @@ import it.unisa.bdsir_takearound.framework.Sound;
 public class Assets {
     public static Pixmap background;
     public static Pixmap backgroundNormal;
+    public static Pixmap backgroundNormal2;
+    public static Pixmap backgroundNormal3;
+    public static Pixmap backgroundRush;
     public static Pixmap logo;
     public static Pixmap mainMenu;
     public static Pixmap buttons;

@@ -13,6 +13,7 @@ import it.unisa.bdsir_takearound.game.GameScreen.GameState;
 public class GameNormalScreen extends GameScreen {
 	
 	static final String MOD_NORMAL = "normal";
+	static int sceltasfondo;
 	
 
 	public GameNormalScreen(Game game) {
@@ -22,7 +23,7 @@ public class GameNormalScreen extends GameScreen {
 
 		contatore = new TimeMachine(); 
 		world = new World(tg, contatore, MOD_NORMAL);
-		
+		sceltasfondo = (int) (Math.random() *3);
 		int sceltabrano = (int) (Math.random() * 3);
 		
 		switch (sceltabrano){
@@ -203,8 +204,21 @@ public class GameNormalScreen extends GameScreen {
 	@Override
 	public void present(float deltaTime) {
 		Graphics g = game.getGraphics();
+		
+		switch (sceltasfondo){
+		case 0: {
+			g.drawPixmap(Assets.backgroundNormal, 0, 0); break;
+		}
+		case 1:{
+			g.drawPixmap(Assets.backgroundNormal2, 0, 0); break;
+		}
+		case 2:{
+			g.drawPixmap(Assets.backgroundNormal3, 0, 0); break;
+		}
+		default: break;
+		}
 
-		g.drawPixmap(Assets.backgroundNormal, 0, 0);
+		//g.drawPixmap(Assets.backgroundNormal, 0, 0);
 		drawWorld(world);
 
 		if(state == GameState.Ready) 

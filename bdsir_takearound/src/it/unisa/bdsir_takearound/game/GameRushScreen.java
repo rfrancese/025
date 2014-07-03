@@ -189,7 +189,7 @@ public class GameRushScreen extends GameScreen {
 		// TODO Auto-generated method stub
 		Graphics g = game.getGraphics();
 
-		g.drawPixmap(Assets.background, 0, 0);
+		g.drawPixmap(Assets.backgroundRush, 0, 0);
 		drawWorld(world);
 
 		if(state == GameState.Ready) 

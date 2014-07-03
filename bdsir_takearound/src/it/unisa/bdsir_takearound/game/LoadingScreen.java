@@ -14,7 +14,10 @@ public class LoadingScreen extends Screen {
     public void update(float deltaTime) {
     	Graphics g = game.getGraphics();
     	Assets.background = g.newPixmap("background.png", PixmapFormat.RGB565);
-    	Assets.backgroundNormal = g.newPixmap("SfondoM2_mod.png", PixmapFormat.RGB565);
+    	Assets.backgroundNormal = g.newPixmap("SfondoM2mod.jpg", PixmapFormat.RGB565);
+    	Assets.backgroundNormal2 = g.newPixmap("sfondo2mod.jpg", PixmapFormat.RGB565);
+    	Assets.backgroundNormal3 = g.newPixmap("sfondo3mod.jpg", PixmapFormat.RGB565);
+    	Assets.backgroundRush = g.newPixmap("sfondorush.jpg", PixmapFormat.RGB565);
     	
     	Assets.logo = g.newPixmap("logo.png", PixmapFormat.ARGB4444);
     	Assets.mainMenu = g.newPixmap("mainmenu.png", PixmapFormat.ARGB4444);
@@ -25,7 +28,7 @@ public class LoadingScreen extends Screen {
     	Assets.numbers = g.newPixmap("numbers.png", PixmapFormat.ARGB4444);
     	Assets.ready = g.newPixmap("ready.png", PixmapFormat.ARGB4444);
     	Assets.pause = g.newPixmap("pausemenu.png", PixmapFormat.ARGB4444);
-    	Assets.gameOver = g.newPixmap("gameover.png", PixmapFormat.ARGB4444);
+    	Assets.gameOver = g.newPixmap("gameovernewmod.png", PixmapFormat.ARGB4444);
 
 
     	Assets.click = game.getAudio().newSound("click.ogg");

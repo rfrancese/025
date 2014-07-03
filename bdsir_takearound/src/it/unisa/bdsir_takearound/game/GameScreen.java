@@ -157,7 +157,7 @@ public abstract class GameScreen extends Screen {
 	public void drawGameOverUI() {
 		Graphics g = game.getGraphics();
 
-		g.drawPixmap(Assets.gameOver, 62, 100);
+		g.drawPixmap(Assets.gameOver, 70, 30);
 		g.drawPixmap(Assets.buttons, 128, 200, 0, 128, 64, 64);
 		g.drawLine(0, 416, 480, 416, Color.BLACK);
 	}
