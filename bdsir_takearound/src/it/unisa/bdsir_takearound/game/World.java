@@ -9,6 +9,7 @@ public class World {
     static final float TICK_DECREMENT = 0.05f;
     static final String MOD_NORMAL = "normal"; 
     static final String MOD_RUSH = "rush";
+    static int colpitoAttuale = 999;
      
     public boolean gameOver = false;
 
@@ -125,10 +126,16 @@ public class World {
         	
         	if (this.listaTargetDaDisegnare.get(i).isCatched()){
         		
-        		this.score+=SCORE_INCREMENT; //incrementa il punteggio
+        		if (checkCorrettaNumerazione(listaTargetDaDisegnare.get(i))){
         		
+	        		this.score+=SCORE_INCREMENT; //incrementa il punteggio
+        		}
+        		else
+        			this.score-=SCORE_INCREMENT;
+	        	
         		this.listaTargetDaDisegnare.remove(i);//rimuove il target che è stato colpito
-        		i--;
+	        	i--;
+        		
         	}
         	//altrimenti controlla quali target devono essere eliminati dal gioco perchè è scaduto il loro tempo e non sono stati colpiti
         	else if (contatore.elapsedTime() >= (this.listaTargetDaDisegnare.get(i).getAttesa()+this.durataSecondiTarget)){
@@ -155,6 +162,38 @@ public class World {
         
         tickTime += deltatime;
    
+	}
+
+	private boolean checkCorrettaNumerazione(Target targ) {
+		int colpitoPrecedente = colpitoAttuale;
+		colpitoAttuale = targ.getNumero();
+		
+		if (targ.getNumero()==0){
+			if (colpitoPrecedente==999)
+				return true;
+			else if (colpitoPrecedente!=999){
+				if (colpitoPrecedente==9)
+					return true;
+				else
+					return false;
+			}
+		}
+		
+		switch(targ.getNumero())
+		{
+			
+			case 1: if (colpitoPrecedente==0) return true;
+			case 2: if (colpitoPrecedente==1) return true;
+			case 3: if (colpitoPrecedente==2) return true;
+			case 4: if (colpitoPrecedente==3) return true;
+			case 5: if (colpitoPrecedente==4) return true;
+			case 6: if (colpitoPrecedente==5) return true;
+			case 7: if (colpitoPrecedente==6) return true;
+			case 8: if (colpitoPrecedente==7) return true;
+			case 9: if (colpitoPrecedente==8) return true;
+			default: return false;
+		}
+		
 	}
 
 }
