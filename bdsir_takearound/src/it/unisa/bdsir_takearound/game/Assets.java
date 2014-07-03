@@ -36,4 +36,5 @@ public class Assets {
     public static Music audioNormal2;
     public static Music audioNormal3;
     public static Music audioRush;
+    public static Music menu;
 }

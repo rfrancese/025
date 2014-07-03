@@ -6,6 +6,7 @@ import android.content.Intent;
 import it.unisa.bdsir_takearound.framework.Game;
 import it.unisa.bdsir_takearound.framework.Graphics;
 import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
+import it.unisa.bdsir_takearound.framework.Music;
 import it.unisa.bdsir_takearound.framework.Screen;
 import it.unisa.bdsir_takearound.framework.impl.AndroidGame;
 import it.unisa.bdsir_takearound.ui.RecordActivity;
@@ -13,8 +14,14 @@ import it.unisa.bdsir_takearound.ui.TutorialActivity;
 
 public class MainMenuScreen extends Screen {
     
+	Music audio;
+	
     public MainMenuScreen(Game game) {
-        super(game);               
+        super(game);    
+        Assets.menu = game.getAudio().newMusic("menu.ogg");
+        audio = Assets.menu;
+        audio.setLooping(true);
+        audio.play();
     }   
 
     @Override

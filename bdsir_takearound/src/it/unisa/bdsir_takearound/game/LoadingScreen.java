@@ -37,6 +37,7 @@ public class LoadingScreen extends Screen {
     	Assets.eat = game.getAudio().newSound("eat.ogg");
     	Assets.bitten = game.getAudio().newSound("bitten.ogg");
     	
+    	Assets.menu = game.getAudio().newMusic("menu.ogg");
     	Assets.audioNormal1 = game.getAudio().newMusic("facile.ogg");
     	Assets.audioNormal2 = game.getAudio().newMusic("medio.ogg");
     	Assets.audioNormal3 = game.getAudio().newMusic("difficile.ogg");
