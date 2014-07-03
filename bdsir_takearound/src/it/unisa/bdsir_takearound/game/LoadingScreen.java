@@ -44,7 +44,11 @@ public class LoadingScreen extends Screen {
     	Assets.audioRush = game.getAudio().newMusic("rush.ogg");
 
     	Assets.background = g.newPixmap("menu_incompleto_mod.png", PixmapFormat.RGB565);
-    	Assets.playbutton = g.newPixmap("play.png", PixmapFormat.ARGB4444);
+    	Assets.playnormalbutton = g.newPixmap("playnormalmod.png", PixmapFormat.ARGB4444);
+    	Assets.playrushbutton = g.newPixmap("playrushmod.png", PixmapFormat.ARGB4444);
+
+
+    	//Assets.playbutton = g.newPixmap("play.png", PixmapFormat.ARGB4444);
     	Assets.tutorialbutton = g.newPixmap("pulsante_tutorial.png", PixmapFormat.ARGB4444);
     	Assets.recordbutton = g.newPixmap("pulsante_record.png", PixmapFormat.ARGB4444);
 
