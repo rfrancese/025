@@ -110,12 +110,13 @@ public class MainMenuScreen extends Screen {
 
     @Override
     public void dispose() {
-
+    	audio.stop();
+    	audio.dispose();
     }
 
 	@Override
 	public void stopGioco() {
-		// TODO Auto-generated method stub
-		
+		audio.stop();
+    	audio.dispose();
 	}
 }
