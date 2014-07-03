@@ -38,17 +38,20 @@ public class MainMenuScreen extends Screen {
                     Settings.soundEnabled = !Settings.soundEnabled;
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
+                    audio.dispose();
                 }
                 if(inBounds(event, 25, 50, 90, 25) ) {//play in modalità NORMAL
                     game.setScreen(new GameNormalScreen(game));
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
+                    audio.dispose();
                     return;
                 }
                 if(inBounds(event, 120, 50, 90, 25) ) {//play in modalità RUSH
                     game.setScreen(new GameRushScreen(game));
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
+                    audio.dispose();
                     return;
                 }
                 if(inBounds(event, 25, 100, 90, 25) ) {
@@ -56,6 +59,7 @@ public class MainMenuScreen extends Screen {
                     ((AndroidGame) this.game).startActivity(intent);
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
+                    audio.dispose();
                     return;
                 }
                 if(inBounds(event, 25, 150, 90, 25) ) {
