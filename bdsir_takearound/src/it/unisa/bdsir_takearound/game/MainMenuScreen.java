@@ -39,33 +39,33 @@ public class MainMenuScreen extends Screen {
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                 }
-                if(inBounds(event, 20, 20, 120, 120) ) {//play in modalità NORMAL
+                if(inBounds(event, 30, 30, 120, 120) ) {//play in modalità NORMAL
                     game.setScreen(new GameNormalScreen(game));
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                     return;
                 }
-                if(inBounds(event, 130, 130, 230, 230) ) {//play in modalità RUSH
+                if(inBounds(event, 140, 140, 120, 120) ) {//play in modalità RUSH
                     game.setScreen(new GameRushScreen(game));
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                     return;
                 }
-                if(inBounds(event, g.getWidth()-110, 50, g.getWidth()-50, 100) ) {
+                if(inBounds(event, 370, 50, 70, 70) ) {
                     Intent intent = new Intent((AndroidGame) this.game, TutorialActivity.class);
                     ((AndroidGame) this.game).startActivity(intent);
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                     return;
                 }
-                if(inBounds(event, g.getWidth()-180, 130, g.getWidth()-120, 180) ) {
+                if(inBounds(event, 310, 130, 70, 70) ) {
                 	Intent intent = new Intent((AndroidGame) this.game, RecordActivity.class);
                     ((AndroidGame) this.game).startActivity(intent);
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                     return;
                 }
-                if(inBounds(event, g.getWidth()-110, 210, g.getWidth()-50, 270) ) {//bottone da modificare
+                if(inBounds(event, 370, 210, 70, 70) ) {//bottone da modificare
                 	 Intent intent = new Intent((AndroidGame) this.game, TutorialActivity.class);
                      ((AndroidGame) this.game).startActivity(intent);
                      if(Settings.soundEnabled)
@@ -99,9 +99,9 @@ public class MainMenuScreen extends Screen {
         g.drawPixmap(Assets.playrushbutton, 130, 130);
       //  g.drawPixmap(Assets.playbutton, 25, 50);
       //  g.drawPixmap(Assets.playbutton, 120, 50);
-        g.drawPixmap(Assets.tutorialbutton, g.getWidth()-110, 50);
-        g.drawPixmap(Assets.recordbutton, g.getWidth()-180, 130);
-        g.drawPixmap(Assets.tutorialbutton, g.getWidth()-110, 210);
+        g.drawPixmap(Assets.tutorialbutton, 370, 50);
+        g.drawPixmap(Assets.recordbutton, 300, 130);
+        g.drawPixmap(Assets.tutorialbutton, 370, 210);
     }
 
     @Override
