@@ -68,13 +68,16 @@ public abstract class GameScreen extends Screen {
 						state = GameState.Running;
 						
 						return;
-					}                    
+					}    
+				}
+				if(event.x > 120 && event.x <= 200){
 					if(event.y > 148 && event.y < 196) {
 						if(Settings.soundEnabled)
 							Assets.click.play(1);
 						game.setScreen(new MainMenuScreen(game));                        
 						return;
 					}
+				
 				}
 			}
 		}
@@ -159,15 +162,14 @@ public abstract class GameScreen extends Screen {
 		Graphics g = game.getGraphics();
 
 		g.drawPixmap(Assets.gameOver, 20, 30);
-		g.drawPixmap(Assets.buttons, 128, 200, 0, 128, 64, 64);
-		g.drawLine(0, 416, 480, 416, Color.BLACK);
+		g.drawPixmap(Assets.xbutton, 128, 200);
 	}
 	public void drawWinUI() {
 		Graphics g = game.getGraphics();
 
 		g.drawPixmap(Assets.win, 70, 30);
-		g.drawPixmap(Assets.buttons, 128, 200, 0, 128, 64, 64);
-	}
+		g.drawPixmap(Assets.xbutton, 128, 200);
+		}
 
 	public void drawText(Graphics g, String line, int x, int y) {
 		int len = line.length();

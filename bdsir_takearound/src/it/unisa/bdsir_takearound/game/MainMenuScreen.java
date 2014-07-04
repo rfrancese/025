@@ -101,7 +101,7 @@ public class MainMenuScreen extends Screen {
       //  g.drawPixmap(Assets.playbutton, 120, 50);
         g.drawPixmap(Assets.tutorialbutton, 370, 50);
         g.drawPixmap(Assets.recordbutton, 300, 130);
-        g.drawPixmap(Assets.tutorialbutton, 370, 210);
+        g.drawPixmap(Assets.settingsbutton, 370, 210);
     }
 
     @Override

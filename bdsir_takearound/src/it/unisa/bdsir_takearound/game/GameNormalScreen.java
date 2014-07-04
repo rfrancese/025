@@ -187,7 +187,9 @@ public class GameNormalScreen extends GameScreen {
 						state = GameState.Running;
 						
 						return;
-					}                    
+					}    
+				}
+					if(event.x > 120 && event.x <= 200){
 					if(event.y > 148 && event.y < 196) {//chiude la schermata di gioco e torna al menu
 						if(Settings.soundEnabled)
 							Assets.click.play(1);
