@@ -23,5 +23,7 @@ public class TutorialActivity extends Activity {
 		
 		TextView tvspa = (TextView)findViewById(R.id.textViewTutorialSPA);
 	}
+	
+	
 
 }

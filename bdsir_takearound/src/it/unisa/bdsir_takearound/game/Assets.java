@@ -24,11 +24,13 @@ public class Assets {
     
     public static Pixmap playbutton;
     public static Pixmap tutorialbutton;
+    public static Pixmap settingsbutton;
     public static Pixmap recordbutton;
     public static Pixmap num0,num1,num2,num3,num4,num5,num6,num7,num8,num9;
     public static Pixmap target;
     public static Pixmap playnormalbutton;
     public static Pixmap playrushbutton;
+    public static Pixmap xbutton;
     
     public static Sound click;
     public static Sound eat;

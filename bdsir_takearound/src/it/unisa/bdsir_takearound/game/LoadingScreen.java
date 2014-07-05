@@ -27,9 +27,10 @@ public class LoadingScreen extends Screen {
     	Assets.help3 = g.newPixmap("help3.png", PixmapFormat.ARGB4444);
     	Assets.numbers = g.newPixmap("numbers.png", PixmapFormat.ARGB4444);
     	Assets.ready = g.newPixmap("readymod.png", PixmapFormat.ARGB4444);
-    	Assets.pause = g.newPixmap("pausemenu.png", PixmapFormat.ARGB4444);
+    	Assets.pause = g.newPixmap("pausemod.png", PixmapFormat.ARGB4444);
     	Assets.gameOver = g.newPixmap("gameovernewmod.png", PixmapFormat.ARGB4444);
     	Assets.win = g.newPixmap("winnewmod.png", PixmapFormat.ARGB4444);
+    	Assets.xbutton = g.newPixmap("xmod.png", PixmapFormat.ARGB4444);
 
 
 
@@ -51,6 +52,7 @@ public class LoadingScreen extends Screen {
     	//Assets.playbutton = g.newPixmap("play.png", PixmapFormat.ARGB4444);
     	Assets.tutorialbutton = g.newPixmap("tutorialmod.png", PixmapFormat.ARGB4444);
     	Assets.recordbutton = g.newPixmap("recordmod.png", PixmapFormat.ARGB4444);
+    	Assets.settingsbutton = g.newPixmap("settingsmod.png", PixmapFormat.ARGB4444);
 
     	//caricamento immagini numeri
     	Assets.num0 = g.newPixmap("default-0.png", PixmapFormat.ARGB4444);
