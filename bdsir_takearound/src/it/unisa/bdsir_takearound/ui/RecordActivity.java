@@ -6,7 +6,9 @@ import it.unisa.bdsir_takearound.db.DatabaseHelper;
 import it.unisa.takearound.R;
 import android.app.Activity;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
@@ -76,6 +78,17 @@ public class RecordActivity extends Activity {
 	     lp.setMargins(0, 5, 0, 5);
 	     TextView punteggioN= new TextView(this);
 	     TextView punteggioR = new TextView(this);
+	     
+	     punteggioN.setTextColor(Color.WHITE);
+	     punteggioR.setTextColor(Color.WHITE);
+	     
+	     punteggioN.setText(punteggioNormal);
+	     punteggioR.setText(punteggioRush);
+	     punteggioR.setGravity(Gravity.RIGHT);
+	     
+	     row.addView(punteggioN);
+	     row.addView(punteggioR);
+	     listaPunteggiTotale.addView(row);
 	}
 
 }

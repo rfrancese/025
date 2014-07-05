@@ -116,14 +116,17 @@ public class MainMenuScreen extends Screen {
 
     @Override
     public void dispose() {
+    	audio.pause();
     	audio.stop();
     	audio.dispose();
+    	
     }
 
 	@Override
 	public void stopGioco(){
-	//	audio.stop();
-    //	audio.dispose();
-		this.dispose();
+		audio.pause();
+		audio.stop();
+    	audio.dispose();
+		
 	}
 }
