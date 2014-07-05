@@ -11,6 +11,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 public class RecordActivity extends Activity {
 	public void onCreate(Bundle icicle){
@@ -43,12 +46,36 @@ public class RecordActivity extends Activity {
 		}
 		
 		
-		ListView listView = (ListView)findViewById(R.id.listViewRecordNormal);
-        String [] array = {"Antonio","Giovanni","Michele","Giuseppe", "Leonardo", "Alessandro"};
-        ArrayAdapter<String> arrayAdapter =
-                new ArrayAdapter<String>(this, R.layout.row, R.id.textViewList, array);
-        listView.setAdapter(arrayAdapter);
+		TableLayout listaPunteggiTotale = (TableLayout)findViewById(R.id.tabellapunteggi);
 
+//		String [] array = {"Antonio","Giovanni","Michele","Giuseppe", "Leonardo", "Alessandro"};
+		String[] arrayNormal = new String[punteggiNormal.size()];
+		for (int i=0; i<punteggiNormal.size(); i++){
+			arrayNormal[i] = punteggiNormal.get(i);
+		}
+		
+		String[] arrayRush = new String[punteggiRush.size()];
+		for (int j=0; j<punteggiNormal.size(); j++){
+			arrayRush[j] = punteggiNormal.get(j);
+		}
+		int max;String punteggioNormal, punteggioRush, mod;
+		if (punteggiNormal.size()<punteggiRush.size()) max=punteggiRush.size(); else max=punteggiNormal.size();
+		for (int k=0; k<max; k++){
+			punteggioNormal = arrayNormal[k];
+			punteggioRush = arrayRush[k];
+			insertRow(listaPunteggiTotale, punteggioNormal, punteggioRush);
+		}
+        
+	}
+
+	private void insertRow(TableLayout listaPunteggiTotale,
+			String punteggioNormal, String punteggioRush) {
+		// TODO Auto-generated method stub
+		TableRow row= new TableRow(this);
+	     TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
+	     lp.setMargins(0, 5, 0, 5);
+	     TextView punteggioN= new TextView(this);
+	     TextView punteggioR = new TextView(this);
 	}
 
 }
