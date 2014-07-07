@@ -36,7 +36,7 @@ public abstract class GameScreen extends Screen {
 
 	TargetGenerator tg;
 	TimeMachine contatore;
-
+	boolean volumestatus;
 
 
 	@Override
@@ -145,10 +145,15 @@ public abstract class GameScreen extends Screen {
 	public void drawRunningUI() {
 		Graphics g = game.getGraphics();
 
-		g.drawPixmap(Assets.buttons, 0, g.getHeight()-64, 64, 128, 64, 64);//tasto pausa
+		g.drawPixmap(Assets.pausebutton, 0, g.getHeight()-64);//tasto pausa
 		//      g.drawLine(0, 416, 480, 416, Color.BLACK);
 		//      g.drawPixmap(Assets.buttons, 0, 416, 64, 64, 64, 64);
 		//      g.drawPixmap(Assets.buttons, 256, 416, 0, 64, 64, 64);
+		if(volumestatus == true)
+			g.drawPixmap(Assets.volumeon, g.getWidth()-64, g.getHeight()-64);
+		else
+			g.drawPixmap(Assets.volumeoff, g.getWidth()-64, g.getHeight()-64);
+		
 	}
 
 	public void drawPausedUI() {
@@ -217,5 +222,17 @@ public abstract class GameScreen extends Screen {
 		audio.dispose();
 		
 		game.setScreen(new MainMenuScreen(game));
+	}
+
+	public void setVolumestatus() {
+		if(volumestatus==true){
+			volumestatus = false;
+			audio.setVolume(0);
+		}
+		
+		else {
+			volumestatus = true;
+			audio.setVolume(1);
+		}
 	}
 }

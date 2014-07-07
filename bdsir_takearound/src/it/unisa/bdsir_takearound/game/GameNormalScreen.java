@@ -21,6 +21,7 @@ public class GameNormalScreen extends GameScreen {
 		// TODO Auto-generated constructor stub
 		tg = new TargetGenerator(Assets.target,game.getGraphics().getWidth(),game.getGraphics().getHeight()-64);
 
+		volumestatus = true;
 		contatore = new TimeMachine(); 
 		world = new World(tg, contatore, MOD_NORMAL);
 		sceltasfondo = (int) (Math.random() *3);
@@ -109,6 +110,10 @@ public class GameNormalScreen extends GameScreen {
 					pausaGioco();
 					return;
 				}
+				else if(event.x > game.getGraphics().getWidth()-64 && event.y > game.getGraphics().getHeight()-64){
+					setVolumestatus();
+				}
+					
 			}
 		}
 		

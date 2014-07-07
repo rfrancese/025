@@ -41,7 +41,8 @@ public class TargetGenerator {
 	 * genera target con coordinate random
 	 */
 	public void generateTargets(){
-		int rx,ry, attesa=0;
+		int rx,ry;
+		double attesa = 0;
 		
 		rx=mRnd.nextInt(surfaceWidth-sfondo.getWidth());
 		ry=mRnd.nextInt(surfaceHeight-sfondo.getHeight());
@@ -56,9 +57,19 @@ public class TargetGenerator {
 			ry=mRnd.nextInt(surfaceHeight-sfondo.getHeight());
 			
 			Target t = new Target(sfondo,i%10, rx, ry);
-			
-			if (i%2 == 0) attesa+=1;
-			if (i%2 == 1) attesa+=2;
+			if(i>=0 && i <8)
+				attesa += 1;
+			else if(i>7 && i <16)
+				attesa += 0.8;
+			else if(i>15 && i<24)
+				attesa += 0.6;
+			else if(i>23 && i<33)
+				attesa += 0.5;
+			else if(i>32 && i<44)
+				attesa += 0.4;
+			else if(i>43)
+				attesa += 0.3;
+
 			t.setAttesa(attesa);
 			
 			listaTarget.add(t);

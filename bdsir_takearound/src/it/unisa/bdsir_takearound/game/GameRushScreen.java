@@ -12,13 +12,13 @@ import it.unisa.bdsir_takearound.game.GameScreen.GameState;
 public class GameRushScreen extends GameScreen {
 	
 	static final String MOD_RUSH = "rush";
-	private Music audio;
 
 	public GameRushScreen(Game game) {
 		super(game);
 		// TODO Auto-generated constructor stub
 		tg = new TargetGenerator(Assets.target,game.getGraphics().getWidth(),game.getGraphics().getHeight()-64);
 
+		volumestatus = true;
 		contatore = new TimeMachine(); 
 		world = new World(tg, contatore, MOD_RUSH);
 		
@@ -90,11 +90,11 @@ public class GameRushScreen extends GameScreen {
 				if(event.x < 64 && event.y > game.getGraphics().getHeight()-64) {//se l'utente preme il tasto di pausa
 					if(Settings.soundEnabled)
 						Assets.click.play(1);
-					if (audio.isPlaying()) audio.pause();
-					state = GameState.Paused;
-					
-					contatore.pausa();
+					pausaGioco();
 					return;
+				}
+				else if(event.x > game.getGraphics().getWidth()-64 && event.y > game.getGraphics().getHeight()-64){
+					setVolumestatus();
 				}
 			}
 		}

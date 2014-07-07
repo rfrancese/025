@@ -31,6 +31,9 @@ public class LoadingScreen extends Screen {
     	Assets.gameOver = g.newPixmap("gameovernewmod.png", PixmapFormat.ARGB4444);
     	Assets.win = g.newPixmap("winnewmod.png", PixmapFormat.ARGB4444);
     	Assets.xbutton = g.newPixmap("xmod.png", PixmapFormat.ARGB4444);
+    	Assets.pausebutton = g.newPixmap("tastopausamod.png", PixmapFormat.ARGB4444);
+    	Assets.volumeon = g.newPixmap("volumeonmod.png", PixmapFormat.ARGB4444);
+    	Assets.volumeoff = g.newPixmap("volumeoffmod.png", PixmapFormat.ARGB4444);
 
 
 

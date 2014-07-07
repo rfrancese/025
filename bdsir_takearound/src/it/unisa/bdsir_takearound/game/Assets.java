@@ -31,6 +31,9 @@ public class Assets {
     public static Pixmap playnormalbutton;
     public static Pixmap playrushbutton;
     public static Pixmap xbutton;
+    public static Pixmap pausebutton;
+    public static Pixmap volumeon;
+    public static Pixmap volumeoff;
     
     public static Sound click;
     public static Sound eat;

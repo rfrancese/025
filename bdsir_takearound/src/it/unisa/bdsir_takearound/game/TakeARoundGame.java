@@ -12,7 +12,7 @@ public class TakeARoundGame extends AndroidGame {
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
-		//super.onBackPressed();
+		super.onBackPressed();
 		this.screen.pause();
 	}
     
