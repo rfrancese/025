@@ -22,6 +22,7 @@ public class MainMenuScreen extends Screen {
         audio = Assets.menu;
         audio.setLooping(true);
         audio.play();
+        
     }   
 
     @Override

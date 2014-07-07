@@ -1,17 +1,23 @@
 package it.unisa.bdsir_takearound.game;
 
+import it.unisa.bdsir_takearound.db.DatabaseHelper;
 import it.unisa.bdsir_takearound.framework.Game;
 import it.unisa.bdsir_takearound.framework.Graphics;
 import it.unisa.bdsir_takearound.framework.Screen;
 import it.unisa.bdsir_takearound.framework.Graphics.PixmapFormat;
 
 public class LoadingScreen extends Screen {
+	protected DatabaseHelper databaseHelper;
     public LoadingScreen(Game game) {
         super(game);
+        
     }
 
     @Override
     public void update(float deltaTime) {
+    	
+    	
+    	
     	Graphics g = game.getGraphics();
     	Assets.background = g.newPixmap("background.png", PixmapFormat.RGB565);
     	Assets.backgroundNormal = g.newPixmap("SfondoM2mod.jpg", PixmapFormat.RGB565);

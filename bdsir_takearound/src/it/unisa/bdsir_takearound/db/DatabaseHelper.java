@@ -18,17 +18,30 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		String sql="CREATE TABLE IF NOT EXISTS "+RecordTable.TABLE_NAME; 
+	//	String sqlDrop = "DROP TABLE "+RecordTable.TABLE_NAME;
+	//	db.execSQL(sqlDrop);
+		
+		String sql="CREATE TABLE IF NOT EXISTS "+RecordTable.TABLE_NAME;  
 		sql+="("+RecordTable.PUNTEGGIO+" int,";
-		sql+=RecordTable.MODALITY+" varchar(20) primary key)";
+		sql+=RecordTable.MODALITY+" varchar(20), ";
+		sql+= " int "+RecordTable.ID+" primary key)";
 		//Eseguiamo la query
 		db.execSQL(sql);
 		
 		sql=null;
 		
-		insertPunteggio(db, "100","rush");
+		sql="INSERT ";  
+		sql+="INTO "+RecordTable.TABLE_NAME;
+		sql+=" (punteggio, modality) ";
+		sql+="VALUES ('200', 'rush');";
+		//Eseguiamo la query
+		db.execSQL(sql);
+		
+		
+		insertPunteggio(db, "150","rush");
 		insertPunteggio(db, "100","normal");
-		insertPunteggio(db, "900","normal");
+		insertPunteggio(db, "90","normal");
+		insertPunteggio(db, "50","normal");
 		
 	}
 	
@@ -48,7 +61,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 				null,
 				null, 
 				null, 
-				RecordTable.MODALITY));
+				null));
 		
 	}
 

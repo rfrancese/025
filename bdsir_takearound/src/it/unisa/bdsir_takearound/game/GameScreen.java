@@ -17,6 +17,7 @@ public abstract class GameScreen extends Screen {
 	public GameScreen(Game game) {
 		super(game);
 		// TODO Auto-generated constructor stub
+		
 	}
 
 	enum GameState {
