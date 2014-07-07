@@ -24,18 +24,44 @@
         
 	<TableRow>
 	    <TextView
-	        android:id="@+id/classifica"
+	        android:id="@+id/scores"
 	        android:layout_width="fill_parent"
 	        android:layout_height="match_parent"
 	        android:layout_marginBottom="10dip"
 	        android:layout_marginTop="10dip"
 	        android:layout_weight="0.68"
 	        android:gravity="center"
-	        android:text="classifica"
-	        android:textAllCaps="true"
+	        android:text="Your Scores"
 	        android:textColor="#FFFFFF"
-	        android:textSize="40dp" />
+	        android:textSize="40sp" />
 	</TableRow>
+	<TableRow>
+	    <TextView
+	        android:id="@+id/normaltitle"
+	        android:layout_width="fill_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginBottom="10dip"
+	        android:layout_marginTop="10dip"
+	        android:layout_weight="0.68"
+	        android:gravity="center"
+	        android:text="Normal"
+	        android:textColor="#FFFFFF"
+	        android:layout_gravity="left"
+	        android:textSize="30sp" />
+	    <TextView
+	        android:id="@+id/rushtitle"
+	        android:layout_width="fill_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginBottom="10dip"
+	        android:layout_marginTop="10dip"
+	        android:layout_weight="0.68"
+	        android:gravity="center"
+	        android:text="Rush"
+	        android:textColor="#FFFFFF"
+	        android:layout_gravity="right"
+	        android:textSize="30sp" />
+	</TableRow>
+	
 	</TableLayout>
 	
 	

@@ -9,6 +9,8 @@ public interface RecordTable extends BaseColumns{
 	String PUNTEGGIO = "punteggio";
  
 	String MODALITY = "modality";
+	
+	String ID = "id";
  
 	String[] COLUMNS = new String[]
 	{  PUNTEGGIO, MODALITY };
