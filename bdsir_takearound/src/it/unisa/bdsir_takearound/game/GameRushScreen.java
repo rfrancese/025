@@ -99,6 +99,9 @@ public class GameRushScreen extends GameScreen {
 				else if(event.x > game.getGraphics().getWidth()-64 && event.y > game.getGraphics().getHeight()-64){
 					setVolumestatus();
 				}
+				else if(event.x > game.getGraphics().getWidth()-64 && event.y > game.getGraphics().getHeight()-64){
+					setVolumestatus();
+				}
 			}
 		}
 		
