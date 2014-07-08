@@ -117,9 +117,10 @@ public class MainMenuScreen extends Screen {
 
     @Override
     public void dispose() {
-    	audio.pause();
-    	audio.stop();
-    	audio.dispose();
+    	
+    	if (!audio.isStopped()) audio.pause();
+    	if (!audio.isStopped()) audio.stop();
+    	if (audio.isStopped()) audio.dispose();
     	
     }
 

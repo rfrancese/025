@@ -10,17 +10,18 @@ import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
 import it.unisa.bdsir_takearound.framework.impl.AndroidGame;
 import it.unisa.bdsir_takearound.framework.Music;
 import it.unisa.bdsir_takearound.game.GameScreen.GameState;
+import it.unisa.bdsir_takearound.ui.RegistraPunteggio;
 
 public class GameRushScreen extends GameScreen {
 	
 	static final String MOD_RUSH = "rush";
-	private Music audio;
 
 	public GameRushScreen(Game game) {
 		super(game);
 		// TODO Auto-generated constructor stub
 		tg = new TargetGenerator(Assets.target,game.getGraphics().getWidth(),game.getGraphics().getHeight()-64);
 
+		volumestatus = true;
 		contatore = new TimeMachine(); 
 		world = new World(tg, contatore, MOD_RUSH);
 		
@@ -92,11 +93,11 @@ public class GameRushScreen extends GameScreen {
 				if(event.x < 64 && event.y > game.getGraphics().getHeight()-64) {//se l'utente preme il tasto di pausa
 					if(Settings.soundEnabled)
 						Assets.click.play(1);
-					if (audio.isPlaying()) audio.pause();
-					state = GameState.Paused;
-					
-					contatore.pausa();
+					pausaGioco();
 					return;
+				}
+				else if(event.x > game.getGraphics().getWidth()-64 && event.y > game.getGraphics().getHeight()-64){
+					setVolumestatus();
 				}
 			}
 		}
@@ -248,14 +249,14 @@ public class GameRushScreen extends GameScreen {
 		g.drawPixmap(Assets.win, 70, 30);
 		g.drawPixmap(Assets.xbutton, 128, 200);
 		
-//		((TakeARoundGame)game).insertPunteggio(world.score, "rush");
+
 		
-//		Intent intent = new Intent( ((AndroidGame)game).getBaseContext(), RegistraPunteggio.class);
-//		intent.putExtra("punteggio", world.score);
-//		intent.putExtra("modality", "rush");
-//		((AndroidGame)game).startActivity(intent);
+		Intent intent = new Intent( ((AndroidGame)game).getBaseContext(), RegistraPunteggio.class);
+		intent.putExtra("punteggio", world.score);
+		intent.putExtra("modality", "rush");
+		((AndroidGame)game).startActivity(intent);
 		
-		}
+	}
 
 	@Override
 	public void pause() {

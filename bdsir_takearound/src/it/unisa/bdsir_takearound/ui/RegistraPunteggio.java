@@ -6,7 +6,10 @@ import it.unisa.takearound.R;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 public class RegistraPunteggio extends Activity{
 
@@ -16,15 +19,26 @@ public class RegistraPunteggio extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		databaseHelper = new DatabaseHelper(this);
+		setContentView(R.layout.registrapunti_activity);
 		
+		databaseHelper = new DatabaseHelper(this);
+		String mod=null; int punt=0;
 		Bundle extras = getIntent().getExtras();
-		String mod = extras.getString("modality");
-		int punt = extras.getInt("punteggio");
+		if (extras != null) {
+			mod = extras.getString("modality");
+			punt = extras.getInt("punteggio");
+		}
+		
+		Log.d(NOTIFICATION_SERVICE, ""+mod+":"+punt);
 
 		insertPunteggio(punt, mod);
 		
-		setContentView(R.layout.registrapunti_activity);
+		TextView punteggio = (TextView)this.findViewById(R.id.scoreFinale);
+		punteggio.setText(mod);
+		punteggio.setText(Integer.toString(punt));
+		punteggio.setTextColor(Color.WHITE);
+		
+		
 	}
 	
 	public void insertPunteggio(int punteggio, String mod){
