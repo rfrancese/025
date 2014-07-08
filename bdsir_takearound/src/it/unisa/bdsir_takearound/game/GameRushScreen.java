@@ -2,10 +2,12 @@ package it.unisa.bdsir_takearound.game;
 
 import java.util.List;
 
+import android.content.Intent;
 import it.unisa.bdsir_takearound.framework.Game;
 import it.unisa.bdsir_takearound.framework.Graphics;
 import it.unisa.bdsir_takearound.framework.Input;
 import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
+import it.unisa.bdsir_takearound.framework.impl.AndroidGame;
 import it.unisa.bdsir_takearound.framework.Music;
 import it.unisa.bdsir_takearound.game.GameScreen.GameState;
 
@@ -240,6 +242,20 @@ public class GameRushScreen extends GameScreen {
 		drawText(g, contoAllaRovescia, g.getWidth()/2 - contoAllaRovescia.length()*20 / 2, g.getHeight()-320);
 	}
 
+	public void drawWinUI() {
+		Graphics g = game.getGraphics();
+
+		g.drawPixmap(Assets.win, 70, 30);
+		g.drawPixmap(Assets.xbutton, 128, 200);
+		
+//		((TakeARoundGame)game).insertPunteggio(world.score, "rush");
+		
+//		Intent intent = new Intent( ((AndroidGame)game).getBaseContext(), RegistraPunteggio.class);
+//		intent.putExtra("punteggio", world.score);
+//		intent.putExtra("modality", "rush");
+//		((AndroidGame)game).startActivity(intent);
+		
+		}
 
 	@Override
 	public void pause() {

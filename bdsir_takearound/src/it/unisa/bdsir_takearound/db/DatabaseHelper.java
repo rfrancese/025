@@ -22,9 +22,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	//	db.execSQL(sqlDrop);
 		
 		String sql="CREATE TABLE IF NOT EXISTS "+RecordTable.TABLE_NAME;  
-		sql+="("+RecordTable.PUNTEGGIO+" int,";
+		sql+="("+RecordTable.PUNTEGGIO+" int ,";
 		sql+=RecordTable.MODALITY+" varchar(20), ";
-		sql+= " int "+RecordTable.ID+" primary key)";
+		sql+= " int "+RecordTable.ID+" AUTO_INCREMENT primary key)";
 		//Eseguiamo la query
 		db.execSQL(sql);
 		

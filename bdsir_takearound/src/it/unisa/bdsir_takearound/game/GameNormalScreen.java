@@ -2,12 +2,15 @@ package it.unisa.bdsir_takearound.game;
 
 import java.util.List;
 
+import android.content.Intent;
 import it.unisa.bdsir_takearound.framework.Game;
 import it.unisa.bdsir_takearound.framework.Graphics;
 import it.unisa.bdsir_takearound.framework.Input;
 import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
 import it.unisa.bdsir_takearound.framework.Music;
+import it.unisa.bdsir_takearound.framework.impl.AndroidGame;
 import it.unisa.bdsir_takearound.game.GameScreen.GameState;
+import it.unisa.bdsir_takearound.ui.RegistraPunteggio;
 
 
 public class GameNormalScreen extends GameScreen {
@@ -266,6 +269,21 @@ public class GameNormalScreen extends GameScreen {
 			drawWinUI();
 		drawText(g, score, g.getWidth() / 2 - score.length()*20 / 2, g.getHeight() - 42);
 	}
+	
+	public void drawWinUI() {
+		Graphics g = game.getGraphics();
+
+		g.drawPixmap(Assets.win, 70, 30);
+		g.drawPixmap(Assets.xbutton, 128, 200);
+		
+		
+		
+		Intent intent = new Intent( ((AndroidGame)game).getBaseContext(), RegistraPunteggio.class);
+		intent.putExtra("punteggio", world.score);
+		intent.putExtra("modality", "normal");
+		((AndroidGame)game).startActivity(intent);
+		
+		}
 
 	@Override
 	public void pause() {
