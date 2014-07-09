@@ -123,7 +123,7 @@ public abstract class GameScreen extends Screen {
 
 	}
 
-	private void disegnaTarget(ArrayList<Target> listaTarget, Graphics g) {
+	protected void disegnaTarget(ArrayList<Target> listaTarget, Graphics g) {
 		// TODO Auto-generated method stub
 		ArrayList<Target> lista = listaTarget; 
 

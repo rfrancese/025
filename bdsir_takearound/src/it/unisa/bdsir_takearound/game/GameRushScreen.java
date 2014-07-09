@@ -1,5 +1,6 @@
 package it.unisa.bdsir_takearound.game;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
@@ -268,6 +269,19 @@ public class GameRushScreen extends GameScreen {
 			intent.putExtras(datiPunteggio);
 			((AndroidGame)game).startActivity(intent);
 			}
+	}
+
+	
+
+	@Override
+	protected void disegnaTarget(ArrayList<Target> listaTarget, Graphics g) {
+		ArrayList<Target> lista = listaTarget; 
+
+		for(int i=0; i<lista.size(); i++){
+			Target tmp = lista.get(i);
+			g.drawPixmap(tmp.getSfondo(), tmp.x, tmp.getY());
+		
+		}
 	}
 
 	@Override
