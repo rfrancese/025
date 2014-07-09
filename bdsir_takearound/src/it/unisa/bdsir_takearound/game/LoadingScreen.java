@@ -19,18 +19,15 @@ public class LoadingScreen extends Screen {
     	
     	
     	Graphics g = game.getGraphics();
-    	Assets.background = g.newPixmap("background.png", PixmapFormat.RGB565);
+    	
     	Assets.backgroundNormal = g.newPixmap("SfondoM2mod.jpg", PixmapFormat.RGB565);
     	Assets.backgroundNormal2 = g.newPixmap("sfondo2mod.jpg", PixmapFormat.RGB565);
     	Assets.backgroundNormal3 = g.newPixmap("sfondo3mod.jpg", PixmapFormat.RGB565);
     	Assets.backgroundRush = g.newPixmap("sfondorush.jpg", PixmapFormat.RGB565);
     	
-    	Assets.logo = g.newPixmap("logo.png", PixmapFormat.ARGB4444);
+    	
     	Assets.mainMenu = g.newPixmap("mainmenu.png", PixmapFormat.ARGB4444);
-    	Assets.buttons = g.newPixmap("buttons.png", PixmapFormat.ARGB4444);
-    	Assets.help1 = g.newPixmap("help1.png", PixmapFormat.ARGB4444);
-    	Assets.help2 = g.newPixmap("help2.png", PixmapFormat.ARGB4444);
-    	Assets.help3 = g.newPixmap("help3.png", PixmapFormat.ARGB4444);
+    	
     	Assets.numbers = g.newPixmap("numbers.png", PixmapFormat.ARGB4444);
     	Assets.ready = g.newPixmap("readymod.png", PixmapFormat.ARGB4444);
     	Assets.pause = g.newPixmap("pausemod.png", PixmapFormat.ARGB4444);
@@ -57,8 +54,6 @@ public class LoadingScreen extends Screen {
     	Assets.playnormalbutton = g.newPixmap("playnormalmod.png", PixmapFormat.ARGB4444);
     	Assets.playrushbutton = g.newPixmap("playrushmod.png", PixmapFormat.ARGB4444);
 
-
-    	//Assets.playbutton = g.newPixmap("play.png", PixmapFormat.ARGB4444);
     	Assets.tutorialbutton = g.newPixmap("tutorialmod.png", PixmapFormat.ARGB4444);
     	Assets.recordbutton = g.newPixmap("recordmod.png", PixmapFormat.ARGB4444);
     	Assets.settingsbutton = g.newPixmap("settingsmod.png", PixmapFormat.ARGB4444);
