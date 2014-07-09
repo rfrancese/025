@@ -2,19 +2,23 @@ package it.unisa.bdsir_takearound.game;
 
 import java.util.List;
 
+import android.content.Intent;
+import android.os.Bundle;
 import it.unisa.bdsir_takearound.framework.Game;
 import it.unisa.bdsir_takearound.framework.Graphics;
 import it.unisa.bdsir_takearound.framework.Input;
 import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
 import it.unisa.bdsir_takearound.framework.Music;
+import it.unisa.bdsir_takearound.framework.impl.AndroidGame;
 import it.unisa.bdsir_takearound.game.GameScreen.GameState;
+import it.unisa.bdsir_takearound.ui.RegistraPunteggio;
 
 
 public class GameNormalScreen extends GameScreen {
 	
 	static final String MOD_NORMAL = "normal";
 	static int sceltasfondo;
-	
+	private boolean flagVittoria=false;
 
 	public GameNormalScreen(Game game) {
 		super(game);
@@ -267,10 +271,30 @@ public class GameNormalScreen extends GameScreen {
 			drawPausedUI();
 		if(state == GameState.GameOver)
 			drawGameOverUI();
-		if(state == GameState.Victory)
+		if(state == GameState.Victory){
+			this.flagVittoria=true;
 			drawWinUI();
+			}
 		drawText(g, score, g.getWidth() / 2 - score.length()*20 / 2, g.getHeight() - 42);
 	}
+	
+	public void drawWinUI() {
+		Graphics g = game.getGraphics();
+
+		g.drawPixmap(Assets.win, 70, 30);
+		g.drawPixmap(Assets.xbutton, 128, 200);
+		
+		
+		if (this.flagVittoria){
+			this.flagVittoria=false;
+			Intent intent = new Intent( ((AndroidGame)game).getApplicationContext(), RegistraPunteggio.class);
+			Bundle datiPunteggio = new Bundle();
+			datiPunteggio.putString("modality", MOD_NORMAL);
+			datiPunteggio.putInt("punteggio", world.score);
+			intent.putExtras(datiPunteggio);
+			((AndroidGame)game).startActivity(intent);
+			}
+		}
 
 	@Override
 	public void pause() {

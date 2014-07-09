@@ -3,12 +3,14 @@ package it.unisa.bdsir_takearound.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
 import android.graphics.Color;
 import it.unisa.bdsir_takearound.framework.Game;
 import it.unisa.bdsir_takearound.framework.Graphics;
 import it.unisa.bdsir_takearound.framework.Music;
 import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
 import it.unisa.bdsir_takearound.framework.Screen;
+import it.unisa.bdsir_takearound.framework.impl.AndroidGame;
 
 public abstract class GameScreen extends Screen {
 
@@ -170,12 +172,7 @@ public abstract class GameScreen extends Screen {
 		g.drawPixmap(Assets.gameOver, 20, 30);
 		g.drawPixmap(Assets.xbutton, 128, 200);
 	}
-	public void drawWinUI() {
-		Graphics g = game.getGraphics();
-
-		g.drawPixmap(Assets.win, 70, 30);
-		g.drawPixmap(Assets.xbutton, 128, 200);
-		}
+	public void drawWinUI() {}
 
 	public void drawText(Graphics g, String line, int x, int y) {
 		int len = line.length();
@@ -236,4 +233,10 @@ public abstract class GameScreen extends Screen {
 			audio.setVolume(1);
 		}
 	}
+
 }
+
+
+	
+
+

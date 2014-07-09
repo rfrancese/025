@@ -39,6 +39,12 @@
                   android:screenOrientation="landscape">
         </activity>
         
+        <activity android:name="it.unisa.bdsir_takearound.ui.RegistraPunteggio"
+                  android:label="TakeARound!"
+                  android:configChanges="keyboard|keyboardHidden|orientation"
+                  android:screenOrientation="landscape">
+        </activity>
+        
     </application>
 
 </manifest>

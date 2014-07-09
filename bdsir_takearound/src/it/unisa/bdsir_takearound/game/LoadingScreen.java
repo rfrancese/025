@@ -76,7 +76,7 @@ public class LoadingScreen extends Screen {
     	Assets.num9 = g.newPixmap("default-9.png", PixmapFormat.ARGB4444);
 
     	//caricamento immagine target
-    	Assets.target = g.newPixmap("hitcircleMod.png", PixmapFormat.ARGB4444);
+    	Assets.target = g.newPixmap("targetpan2mod.png", PixmapFormat.ARGB4444);
 
     	Settings.load(game.getFileIO());
     	game.setScreen(new MainMenuScreen(game));
