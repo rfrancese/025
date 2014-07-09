@@ -3,6 +3,7 @@ package it.unisa.bdsir_takearound.game;
 import java.util.List;
 
 import android.content.Intent;
+import android.os.Bundle;
 import it.unisa.bdsir_takearound.framework.Game;
 import it.unisa.bdsir_takearound.framework.Graphics;
 import it.unisa.bdsir_takearound.framework.Input;
@@ -15,6 +16,7 @@ import it.unisa.bdsir_takearound.ui.RegistraPunteggio;
 public class GameRushScreen extends GameScreen {
 	
 	static final String MOD_RUSH = "rush";
+	private boolean flagVittoria=false;
 
 	public GameRushScreen(Game game) {
 		super(game);
@@ -238,9 +240,11 @@ public class GameRushScreen extends GameScreen {
 			drawPausedUI();
 		if(state == GameState.GameOver)
 			drawGameOverUI();
-		if(state == GameState.Victory)
-			drawWinUI();
+		if(state == GameState.Victory){
 
+			this.flagVittoria=true;
+			drawWinUI();
+		}
 		drawText(g, score, g.getWidth() / 2 - score.length()*20 / 2, g.getHeight() - 42);
 		
 		drawText(g, contoAllaRovescia, g.getWidth()/2 - contoAllaRovescia.length()*20 / 2, g.getHeight()-320);
@@ -252,13 +256,15 @@ public class GameRushScreen extends GameScreen {
 		g.drawPixmap(Assets.win, 70, 30);
 		g.drawPixmap(Assets.xbutton, 128, 200);
 		
-
-		
-		Intent intent = new Intent( ((AndroidGame)game).getBaseContext(), RegistraPunteggio.class);
-		intent.putExtra("punteggio", world.score);
-		intent.putExtra("modality", "rush");
-		((AndroidGame)game).startActivity(intent);
-		
+		if (this.flagVittoria){
+			this.flagVittoria=false;
+			Intent intent = new Intent( ((AndroidGame)game).getApplicationContext(), RegistraPunteggio.class);
+			Bundle datiPunteggio = new Bundle();
+			datiPunteggio.putString("modality", MOD_RUSH);
+			datiPunteggio.putInt("punteggio", world.score);
+			intent.putExtras(datiPunteggio);
+			((AndroidGame)game).startActivity(intent);
+			}
 	}
 
 	@Override

@@ -18,7 +18,7 @@ public class GameNormalScreen extends GameScreen {
 	
 	static final String MOD_NORMAL = "normal";
 	static int sceltasfondo;
-	
+	private boolean flagVittoria=false;
 
 	public GameNormalScreen(Game game) {
 		super(game);
@@ -271,8 +271,10 @@ public class GameNormalScreen extends GameScreen {
 			drawPausedUI();
 		if(state == GameState.GameOver)
 			drawGameOverUI();
-		if(state == GameState.Victory)
+		if(state == GameState.Victory){
+			this.flagVittoria=true;
 			drawWinUI();
+			}
 		drawText(g, score, g.getWidth() / 2 - score.length()*20 / 2, g.getHeight() - 42);
 	}
 	
@@ -283,14 +285,15 @@ public class GameNormalScreen extends GameScreen {
 		g.drawPixmap(Assets.xbutton, 128, 200);
 		
 		
-		
-		Intent intent = new Intent( ((AndroidGame)game).getApplicationContext(), RegistraPunteggio.class);
-		Bundle datiPunteggio = new Bundle();
-		datiPunteggio.putString("modality", "normal");
-		datiPunteggio.putInt("punteggio", world.score);
-		intent.putExtras(datiPunteggio);
-		((AndroidGame)game).startActivity(intent);
-		
+		if (this.flagVittoria){
+			this.flagVittoria=false;
+			Intent intent = new Intent( ((AndroidGame)game).getApplicationContext(), RegistraPunteggio.class);
+			Bundle datiPunteggio = new Bundle();
+			datiPunteggio.putString("modality", MOD_NORMAL);
+			datiPunteggio.putInt("punteggio", world.score);
+			intent.putExtras(datiPunteggio);
+			((AndroidGame)game).startActivity(intent);
+			}
 		}
 
 	@Override

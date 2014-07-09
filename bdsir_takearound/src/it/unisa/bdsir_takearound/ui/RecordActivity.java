@@ -64,24 +64,23 @@ public class RecordActivity extends Activity {
 		else
 			max = punteggiRush.size()-temp;
 		
-		for (int k=0; k<max; k++){			
+		for (int k=0; k<max; k++){
 			punteggioNormal = punteggiNormal.get(k);
 			punteggioRush = punteggiRush.get(k);
 			insertRow(listaPunteggiTotale, punteggioNormal, punteggioRush);
 		}
 		
 		if (punteggiNormal.size()<punteggiRush.size()){
-			int maxNormal=punteggiRush.size()-max;
-			
-			for (int k=0; k<maxNormal; k++){			
+			int j= punteggiRush.size()-temp;
+			for (int k=j; k<punteggiRush.size(); k++){			
 				
 				punteggioRush = punteggiRush.get(k);
 				insertRowRush(listaPunteggiTotale, punteggioRush);
 			}
 		}
 		else{
-			int maxRush =punteggiNormal.size()-max;
-			for (int k=0; k<maxRush; k++){			
+			int j= punteggiNormal.size()-temp;
+			for (int k=j; k<punteggiNormal.size(); k++){			
 				
 				punteggioNormal = punteggiNormal.get(k);
 				insertRowNormal(listaPunteggiTotale, punteggioNormal);
