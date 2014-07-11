@@ -93,6 +93,7 @@ public class GameRushScreen extends GameScreen {
 		for(int i = 0; i < len; i++) {
 			TouchEvent event = touchEvents.get(i);
 			if(event.type == TouchEvent.TOUCH_UP) {
+				prova = contatore.elapsedTime();
 				if(event.x < 64 && event.y > game.getGraphics().getHeight()-64) {//se l'utente preme il tasto di pausa
 					if(Settings.soundEnabled)
 						Assets.click.play(1);
@@ -249,6 +250,10 @@ public class GameRushScreen extends GameScreen {
 			this.flagVittoria=true;
 			drawWinUI();
 		}
+		
+		if(contatore.elapsedTime() - prova >= 5)
+			state = GameState.GameOver;
+		
 		drawText(g, score, g.getWidth() / 2 - score.length()*20 / 2, g.getHeight() - 42);
 		
 		drawText(g, contoAllaRovescia, g.getWidth()/2 - contoAllaRovescia.length()*20 / 2, g.getHeight()-320);

@@ -35,11 +35,12 @@ public abstract class GameScreen extends Screen {
 	int oldScore = 0;
 	String score = "0";
 	String modality;
-	String contoAllaRovescia = "20";
+	String contoAllaRovescia = "30";
 
 	TargetGenerator tg;
 	TimeMachine contatore;
 	boolean volumestatus;
+	double prova = 0;
 
 
 	@Override
