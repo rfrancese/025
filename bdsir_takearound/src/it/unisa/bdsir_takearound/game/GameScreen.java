@@ -40,7 +40,8 @@ public abstract class GameScreen extends Screen {
 	TargetGenerator tg;
 	TimeMachine contatore;
 	boolean volumestatus;
-	double prova = 0;
+
+	double cotrolloTouchUtente = 0;
 
 
 	@Override
@@ -55,6 +56,10 @@ public abstract class GameScreen extends Screen {
 			audio.play();
 			contatore.start();
 		}
+	}
+	
+	protected void updateRunning(List<TouchEvent> touchEvents){
+		
 	}
 
 	protected void updatePaused(List<TouchEvent> touchEvents) {
@@ -143,16 +148,14 @@ public abstract class GameScreen extends Screen {
 		Graphics g = game.getGraphics();
 
 		g.drawPixmap(Assets.ready, 50, 70);
-		g.drawLine(0, 416, 480, 416, Color.BLACK);
+		
 	}
 
 	public void drawRunningUI() {
 		Graphics g = game.getGraphics();
 
 		g.drawPixmap(Assets.pausebutton, 0, g.getHeight()-64);//tasto pausa
-		//      g.drawLine(0, 416, 480, 416, Color.BLACK);
-		//      g.drawPixmap(Assets.buttons, 0, 416, 64, 64, 64, 64);
-		//      g.drawPixmap(Assets.buttons, 256, 416, 0, 64, 64, 64);
+		
 		if(volumestatus == true)
 			g.drawPixmap(Assets.volumeon, g.getWidth()-64, g.getHeight()-64);
 		else
@@ -164,7 +167,7 @@ public abstract class GameScreen extends Screen {
 		Graphics g = game.getGraphics();
 
 		g.drawPixmap(Assets.pause, 80, 100);
-		g.drawLine(0, 416, 480, 416, Color.BLACK);
+		
 	}
 
 	public void drawGameOverUI() {

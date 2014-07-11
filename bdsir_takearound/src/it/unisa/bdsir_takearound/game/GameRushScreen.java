@@ -18,6 +18,7 @@ public class GameRushScreen extends GameScreen {
 	
 	static final String MOD_RUSH = "rush";
 	private boolean flagVittoria=false;
+	String contoAllaRovescia = "30";
 
 	public GameRushScreen(Game game) {
 		super(game);
@@ -93,7 +94,7 @@ public class GameRushScreen extends GameScreen {
 		for(int i = 0; i < len; i++) {
 			TouchEvent event = touchEvents.get(i);
 			if(event.type == TouchEvent.TOUCH_UP) {
-				prova = contatore.elapsedTime();
+				cotrolloTouchUtente = contatore.elapsedTime();
 				if(event.x < 64 && event.y > game.getGraphics().getHeight()-64) {//se l'utente preme il tasto di pausa
 					if(Settings.soundEnabled)
 						Assets.click.play(1);
@@ -163,10 +164,6 @@ public class GameRushScreen extends GameScreen {
 		this.contoAllaRovescia = ""+world.countDown;
 		
 		
-		for (int k=0; k<keyEvents.size(); k++){
-			if (keyEvents.get(k).keyCode == android.view.KeyEvent.KEYCODE_BACK || keyEvents.get(k).keyCode == android.view.KeyEvent.KEYCODE_POWER)
-				state = GameState.Paused;
-		}
 	}
 	
 	protected void updatePaused(List<TouchEvent> touchEvents) {
@@ -251,7 +248,7 @@ public class GameRushScreen extends GameScreen {
 			drawWinUI();
 		}
 		
-		if(contatore.elapsedTime() - prova >= 5)
+		if(contatore.elapsedTime() - cotrolloTouchUtente >= 5)
 			state = GameState.GameOver;
 		
 		drawText(g, score, g.getWidth() / 2 - score.length()*20 / 2, g.getHeight() - 42);
@@ -263,7 +260,7 @@ public class GameRushScreen extends GameScreen {
 		Graphics g = game.getGraphics();
 
 		g.drawPixmap(Assets.win, 70, 30);
-		g.drawPixmap(Assets.xbutton, 128, 200);
+	//	g.drawPixmap(Assets.xbutton, 128, 200);
 		
 		if (this.flagVittoria){
 			this.flagVittoria=false;
@@ -273,7 +270,7 @@ public class GameRushScreen extends GameScreen {
 			datiPunteggio.putInt("punteggio", world.score);
 			intent.putExtras(datiPunteggio);
 			((AndroidGame)game).startActivity(intent);
-			}
+		}
 	}
 
 	
@@ -297,14 +294,11 @@ public class GameRushScreen extends GameScreen {
 
 	@Override
 	public void resume() {
-		
 		super.resume();
 	}
 
 	@Override
 	public void dispose() {
-		
-	
 		
 	}
 
