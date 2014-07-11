@@ -30,6 +30,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
@@ -40,6 +41,8 @@ import android.telephony.TelephonyManager;
 import android.text.Editable;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -56,6 +59,7 @@ public class RegistraPunteggio extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		
 		setContentView(R.layout.registrapunti_activity);
 		
@@ -87,37 +91,52 @@ public class RegistraPunteggio extends Activity{
 		});
 		
 		Button b = (Button) findViewById(R.id.button2);
-		b.setOnClickListener(new View.OnClickListener() {
 		
-			final EditText input = new EditText(RegistraPunteggio.this);
-			Editable editable = input.getEditableText();
+		String savedNickname = getNicknameFromDB();
+		if ((savedNickname != null) && (!savedNickname.equals(""))){////se nel database è stato già inserito un nickname
+			nickname = savedNickname;
+			b.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					new inviaPunteggioOnline().execute("http://takearound.altervista.org/oldSite/registrapunteggio.php");
+				}
+			});
+		}
+		else {
+			b.setOnClickListener(new View.OnClickListener() {
 			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				final EditText input = new EditText(RegistraPunteggio.this);
+				Editable editable = input.getEditableText();
 				
-				new AlertDialog.Builder(RegistraPunteggio.this)
-				    .setTitle("Your name:")
-				    .setMessage("")
-				    .setView(input)
-				    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-				         public void onClick(DialogInterface dialog, int whichButton) {
-				             editable = input.getText(); 
-				             nickname = editable.toString();
-				             //ora che ho il nickname faccio l'invio al server
-				             
-				             new inviaPunteggioOnline().execute("http://takearound.altervista.org/registrapunteggio.php");
-				         }
-				    })
-				    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-				         public void onClick(DialogInterface dialog, int whichButton) {
-				                // Do nothing.
-				        	 dialog.dismiss();
-				         }
-				    }).show();
-				
-			}
-		});
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					
+					new AlertDialog.Builder(RegistraPunteggio.this)
+					    .setTitle("Your name:")
+					    .setMessage("")
+					    .setView(input)
+					    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+					         public void onClick(DialogInterface dialog, int whichButton) {
+					             editable = input.getText(); 
+					             nickname = editable.toString();
+					             //ora che ho il nickname faccio l'invio al server
+					             
+					             new inviaPunteggioOnline().execute("http://takearound.altervista.org/oldSite/registrapunteggio.php");
+					         }
+					    })
+					    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+					         public void onClick(DialogInterface dialog, int whichButton) {
+					                // Do nothing.
+					        	 dialog.dismiss();
+					         }
+					    }).show();
+					
+				}
+			});
+		}
 	}
 	
 	 
@@ -142,7 +161,7 @@ public class RegistraPunteggio extends Activity{
 		// onPostExcecute display the result of the AsynTask
 		@Override
 		protected void onPostExecute(String result) {
-			Toast.makeText(getBaseContext(), "Data Sent!", Toast.LENGTH_LONG).show();
+			Toast.makeText(getBaseContext(), "Data sent to World Score!", Toast.LENGTH_LONG).show();
 			registraPunteggio.onBackPressed();
 		}
 		
@@ -234,4 +253,29 @@ public class RegistraPunteggio extends Activity{
 		values.put(RecordTable.MODALITY, mod);
 		db.insert(RecordTable.TABLE_NAME, null, values);
 	}
+	
+	private String getNicknameFromDB() {
+		
+		String toR = "";
+		
+		Cursor c = databaseHelper.getNickname();
+		try
+		{
+			while (c.moveToNext())
+			{
+				if (c.getString(0) != null){
+					Log.d(STORAGE_SERVICE, "Letto da database: "+c.getString(0));
+					toR = c.getString(0);
+				}
+			}
+		}
+		finally
+		{
+			c.close();
+		}
+		
+		
+		return toR;
+	}
+
 }

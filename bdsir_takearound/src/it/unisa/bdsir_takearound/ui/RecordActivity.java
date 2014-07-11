@@ -5,15 +5,19 @@ import java.util.ArrayList;
 import it.unisa.bdsir_takearound.db.DatabaseHelper;
 import it.unisa.takearound.R;
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -86,6 +90,17 @@ public class RecordActivity extends Activity {
 				insertRowNormal(listaPunteggiTotale, punteggioNormal);
 			}
 		}
+		
+		Button scoreOnline = (Button) this.findViewById(R.id.buttonScoreOnline);
+		scoreOnline.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Uri uriUrl = Uri.parse("http://takearound.dudaone.com/classifica");
+		        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+		        startActivity(launchBrowser);
+			}
+		});
 	}
 
 	private void insertRowRush(TableLayout listaPunteggiTotale, String punteggioRush) {

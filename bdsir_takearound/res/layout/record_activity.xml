@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#000000" >
+
+<ScrollView
     android:layout_width="fill_parent"
-    android:layout_height="match_parent"
-    android:background="#000000"
-    tools:context=".Scores" >
+    android:layout_height="200dp"
+    android:layout_above="@+id/button1"
+    android:layout_alignParentTop="true"
+    android:background="#000000" >
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -22,7 +27,8 @@
 	    android:background="#000000"
 	    android:stretchColumns="0" >
         
-	<TableRow>
+	<TableRow android:layout_width="match_parent" >
+
 	    <TextView
 	        android:id="@+id/scores"
 	        android:layout_width="fill_parent"
@@ -79,3 +85,15 @@
     </LinearLayout>
 
 </ScrollView>
+
+<Button
+    android:id="@+id/buttonScoreOnline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:text="Go to World Score!"
+    android:textSize="30sp"
+    android:textColor="#FFFFFF" />
+	
+</RelativeLayout>

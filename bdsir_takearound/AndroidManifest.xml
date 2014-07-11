@@ -46,6 +46,12 @@
                   android:screenOrientation="landscape">
         </activity>
         
+        <activity android:name="it.unisa.bdsir_takearound.ui.SettingsActivity"
+                  android:label="TakeARound!"
+                  android:configChanges="keyboard|keyboardHidden|orientation"
+                  android:screenOrientation="landscape">
+        </activity>
+        
     </application>
 
 </manifest>

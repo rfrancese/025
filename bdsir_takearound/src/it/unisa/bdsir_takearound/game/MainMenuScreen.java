@@ -10,6 +10,7 @@ import it.unisa.bdsir_takearound.framework.Music;
 import it.unisa.bdsir_takearound.framework.Screen;
 import it.unisa.bdsir_takearound.framework.impl.AndroidGame;
 import it.unisa.bdsir_takearound.ui.RecordActivity;
+import it.unisa.bdsir_takearound.ui.SettingsActivity;
 import it.unisa.bdsir_takearound.ui.TutorialActivity;
 
 public class MainMenuScreen extends Screen {
@@ -67,7 +68,7 @@ public class MainMenuScreen extends Screen {
                     return;
                 }
                 if(inBounds(event, 370, 210, 70, 70) ) {//bottone da modificare
-                	 Intent intent = new Intent((AndroidGame) this.game, TutorialActivity.class);
+                	 Intent intent = new Intent((AndroidGame) this.game, SettingsActivity.class);
                      ((AndroidGame) this.game).startActivity(intent);
                      if(Settings.soundEnabled)
                          Assets.click.play(1);
