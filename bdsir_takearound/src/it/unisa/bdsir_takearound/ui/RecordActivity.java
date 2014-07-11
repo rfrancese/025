@@ -134,14 +134,13 @@ public class RecordActivity extends Activity {
 	     listaPunteggiTotale.addView(row);
 	}
 
-	private void insertRow(TableLayout listaPunteggiTotale,
-			String punteggioNormal, String punteggioRush) {
+	private void insertRow(TableLayout listaPunteggiTotale,	String punteggioNormal, String punteggioRush) {
 		// TODO Auto-generated method stub
 		TableRow row= new TableRow(this);
-	     TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
-	     lp.setMargins(0, 5, 0, 5);
-	     TextView punteggioN= new TextView(this);
-	     TextView punteggioR = new TextView(this);
+		TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
+		lp.setMargins(0, 5, 0, 5);
+		TextView punteggioN= new TextView(this);
+		TextView punteggioR = new TextView(this);
 	     
 	     punteggioN.setTextColor(Color.WHITE);
 	     punteggioR.setTextColor(Color.WHITE);

@@ -47,6 +47,8 @@ import android.widget.Toast;
 
 public class RegistraPunteggio extends Activity{
 
+	private Activity registraPunteggio = this;
+	
 	private DatabaseHelper databaseHelper;
 	String mod="", nickname=""; int punt=0;
 	Punteggio punteggioDaInviare;
@@ -74,6 +76,15 @@ public class RegistraPunteggio extends Activity{
 		punteggio.setText(Integer.toString(punt));
 		punteggio.setTextColor(Color.WHITE);
 		
+		Button back = (Button) this.findViewById(R.id.button1);
+		back.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				registraPunteggio.onBackPressed();
+			}
+		});
 		
 		Button b = (Button) findViewById(R.id.button2);
 		b.setOnClickListener(new View.OnClickListener() {
@@ -95,12 +106,13 @@ public class RegistraPunteggio extends Activity{
 				             nickname = editable.toString();
 				             //ora che ho il nickname faccio l'invio al server
 				             
-				             new inviaPunteggioOnline().execute("http://takearound.altervista.com/registrapunteggio.php");
+				             new inviaPunteggioOnline().execute("http://takearound.altervista.org/registrapunteggio.php");
 				         }
 				    })
 				    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 				         public void onClick(DialogInterface dialog, int whichButton) {
 				                // Do nothing.
+				        	 dialog.dismiss();
 				         }
 				    }).show();
 				
@@ -121,14 +133,17 @@ public class RegistraPunteggio extends Activity{
 			punteggioDaInviare.setPunteggioTotale(Integer.toString(punt));
 			punteggioDaInviare.setNickname(nickname);
 			
-			return POST(params[0],punteggioDaInviare);
 			
+			String res = POST(params[0],punteggioDaInviare);
+			Log.d(CONNECTIVITY_SERVICE, "PROVA CONNESSIONE: "+res);
+			return res;
 		}
 		
 		// onPostExcecute display the result of the AsynTask
 		@Override
 		protected void onPostExecute(String result) {
 			Toast.makeText(getBaseContext(), "Data Sent!", Toast.LENGTH_LONG).show();
+			registraPunteggio.onBackPressed();
 		}
 		
 		
@@ -136,7 +151,7 @@ public class RegistraPunteggio extends Activity{
 	
 	public boolean validate(){
 		
-		return false;
+		return true;
 	}
 
 

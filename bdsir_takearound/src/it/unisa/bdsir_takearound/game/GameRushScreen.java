@@ -18,6 +18,7 @@ public class GameRushScreen extends GameScreen {
 	
 	static final String MOD_RUSH = "rush";
 	private boolean flagVittoria=false;
+	String contoAllaRovescia = "30";
 
 	public GameRushScreen(Game game) {
 		super(game);
@@ -134,6 +135,7 @@ public class GameRushScreen extends GameScreen {
 						tmp.setCatched(true);
 					
 				}
+				this.tempoNonTouch=0;
 			}			
 		}
 		
@@ -159,10 +161,6 @@ public class GameRushScreen extends GameScreen {
 		this.contoAllaRovescia = ""+world.countDown;
 		
 		
-		for (int k=0; k<keyEvents.size(); k++){
-			if (keyEvents.get(k).keyCode == android.view.KeyEvent.KEYCODE_BACK || keyEvents.get(k).keyCode == android.view.KeyEvent.KEYCODE_POWER)
-				state = GameState.Paused;
-		}
 	}
 	
 	protected void updatePaused(List<TouchEvent> touchEvents) {
@@ -255,7 +253,7 @@ public class GameRushScreen extends GameScreen {
 		Graphics g = game.getGraphics();
 
 		g.drawPixmap(Assets.win, 70, 30);
-		g.drawPixmap(Assets.xbutton, 128, 200);
+	//	g.drawPixmap(Assets.xbutton, 128, 200);
 		
 		if (this.flagVittoria){
 			this.flagVittoria=false;
@@ -265,7 +263,7 @@ public class GameRushScreen extends GameScreen {
 			datiPunteggio.putInt("punteggio", world.score);
 			intent.putExtras(datiPunteggio);
 			((AndroidGame)game).startActivity(intent);
-			}
+		}
 	}
 
 	
@@ -289,14 +287,11 @@ public class GameRushScreen extends GameScreen {
 
 	@Override
 	public void resume() {
-		
 		super.resume();
 	}
 
 	@Override
 	public void dispose() {
-		
-	
 		
 	}
 

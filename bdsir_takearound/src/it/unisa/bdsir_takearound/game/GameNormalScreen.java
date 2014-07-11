@@ -168,10 +168,7 @@ public class GameNormalScreen extends GameScreen {
 				Assets.eat.play(1);
 		}
 		
-		for (int k=0; k<keyEvents.size(); k++){
-			if (keyEvents.get(k).keyCode == android.view.KeyEvent.KEYCODE_BACK || keyEvents.get(k).keyCode == android.view.KeyEvent.KEYCODE_POWER)
-				state = GameState.Paused;
-		}
+		
 	}
 
 	

@@ -96,10 +96,10 @@ public class World {
     		}
     	}
     	
-    	if(this.contatore.elapsedTime() >= 20) //se sono passati 20 secondi
+    	if(this.contatore.elapsedTime() >= 30) //se sono passati 30 secondi
     		win =true;
     	
-    	double tmp = 20 - contatore.elapsedTime();
+    	double tmp = 30 - contatore.elapsedTime();
     	if (tmp%1 == 0)
     		countDown = (int) tmp;
     }
