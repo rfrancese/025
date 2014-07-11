@@ -18,7 +18,7 @@ public class GameRushScreen extends GameScreen {
 	
 	static final String MOD_RUSH = "rush";
 	private boolean flagVittoria=false;
-	String contoAllaRovescia = "30";
+	String contoAllaRovescia = "20";
 
 	public GameRushScreen(Game game) {
 		super(game);

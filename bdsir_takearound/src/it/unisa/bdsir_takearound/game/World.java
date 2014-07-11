@@ -32,6 +32,7 @@ public class World {
 	private String modality;
 	
 	private TimeMachine contatore;
+	static private double TIME_TOUCH=20;
 
 	
 	public World(TargetGenerator tg, TimeMachine cont, String mod){
@@ -96,10 +97,10 @@ public class World {
     		}
     	}
     	
-    	if(this.contatore.elapsedTime() >= 30) //se sono passati 30 secondi
+    	if(this.contatore.elapsedTime() >= TIME_TOUCH) //se sono passati 30 secondi
     		win =true;
     	
-    	double tmp = 30 - contatore.elapsedTime();
+    	double tmp = TIME_TOUCH - contatore.elapsedTime();
     	if (tmp%1 == 0)
     		countDown = (int) tmp;
     }

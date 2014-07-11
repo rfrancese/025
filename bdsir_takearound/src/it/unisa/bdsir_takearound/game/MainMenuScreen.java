@@ -3,6 +3,8 @@ package it.unisa.bdsir_takearound.game;
 import java.util.List;
 
 import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
 import it.unisa.bdsir_takearound.framework.Game;
 import it.unisa.bdsir_takearound.framework.Graphics;
 import it.unisa.bdsir_takearound.framework.Input.TouchEvent;
@@ -54,8 +56,9 @@ public class MainMenuScreen extends Screen {
                     return;
                 }
                 if(inBounds(event, 370, 50, 70, 70) ) {
-                    Intent intent = new Intent((AndroidGame) this.game, TutorialActivity.class);
-                    ((AndroidGame) this.game).startActivity(intent);
+                	Intent intent = new Intent((AndroidGame) this.game, TutorialActivity.class);
+                	((AndroidGame) this.game).startActivity(intent);
+                	
                     if(Settings.soundEnabled)
                         Assets.click.play(1);
                     return;
