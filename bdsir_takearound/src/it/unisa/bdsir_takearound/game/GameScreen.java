@@ -35,15 +35,14 @@ public abstract class GameScreen extends Screen {
 	int oldScore = 0;
 	String score = "0";
 	String modality;
-	
-	
+	String contoAllaRovescia = "30";
+
 	TargetGenerator tg;
 	TimeMachine contatore;
 	boolean volumestatus;
-	
-	int tempoNonTouch=0;
-	final static int TEMPO_MAX_NOT_TOUCH = 5;
-	
+
+	double cotrolloTouchUtente = 0;
+
 
 	@Override
 	public void update(float deltaTime) {
@@ -238,7 +237,10 @@ public abstract class GameScreen extends Screen {
 			audio.setVolume(1);
 		}
 	}
+
 }
 
+
 	
+
 

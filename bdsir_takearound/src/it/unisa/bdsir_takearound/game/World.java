@@ -188,7 +188,7 @@ public class World {
 		switch(targ.getNumero())
 		{
 			
-			case 1: if (colpitoPrecedente==0) return true; 
+			case 1: if (colpitoPrecedente<=0) return true; 
 			case 2: if (colpitoPrecedente==1) return true; 
 			case 3: if (colpitoPrecedente==2) return true; 
 			case 4: if (colpitoPrecedente==3) return true; 

@@ -9,6 +9,13 @@ public class Target {
 	private boolean catched;
 	private double attesa;
 	
+	public Target(Pixmap sfondo, int x, int y){
+		this.sfondo = sfondo;
+		this.x=x;
+		this.y=y;
+		catched = false;
+	}
+	
 	public Target(Pixmap sfondo, int num){
 		this.sfondo = sfondo;
 		numero = num;
