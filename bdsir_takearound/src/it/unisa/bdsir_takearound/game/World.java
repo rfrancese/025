@@ -43,6 +43,8 @@ public class World {
 		
 		this.setModality(mod);
 		contatore= cont;
+		
+		colpitoAttuale = 999;
 	}
 	
 	public void setModality(String mod){

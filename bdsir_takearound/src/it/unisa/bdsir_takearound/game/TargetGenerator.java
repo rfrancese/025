@@ -48,6 +48,7 @@ public class TargetGenerator {
 		ry=mRnd.nextInt(surfaceHeight-sfondo.getHeight());
 		Target first = new Target(sfondo, 0, rx, ry);
 		first.setAttesa(0);
+		first.setCatched(false);
 		
 		listaTarget.add(first); 
 		
